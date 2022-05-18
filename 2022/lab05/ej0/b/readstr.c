@@ -12,7 +12,7 @@ int main(void) {
     fgets(user_input,MAX_LENGTH,stdin);
 
     length = strlen(user_input);
-    
+    user_input[length-1]='\0';
     printf("Te damos la bienvenida %s a este maravilloso programa!\n", user_input);
 
     return EXIT_SUCCESS;

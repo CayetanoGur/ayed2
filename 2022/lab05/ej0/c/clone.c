@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 char *string_clone(const char *str, size_t length) {
-    char clone[length + 1];
+    char *clone=calloc(length+1, sizeof(char));
     char *output=clone;
     for (size_t i=0; i<length; i++) {
         clone[i] = str[i];
@@ -47,7 +47,8 @@ int main(void) {
     printf("Original: %s\n", original);
     printf("Copia   : %s\n", copy);
 
-
+    free(copy);
+    copy = NULL;
     return EXIT_SUCCESS;
 }
 
