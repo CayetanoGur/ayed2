@@ -1,0 +1,78 @@
+8-a)
+t := 1
+do t < n
+	t := t * 2
+od
+
+Complejidad en terminos de n.
+
+Contamos asignaciones de t, el +1 de la primera asignacion no me importa. Las constantes multiplicativas me dan lo mismo, no tienen importancia.
+
+Lo que hizo el profe es probar con distintos n's y se fija cuantas operaciones hay.
+
+Hace una tablita con la cantidad de n y la cnatidad de operaciones que se hacen.
+
+n = 1, ops = 0
+n = 2, ops = 1
+n = 3, ops = 2
+n = 4, ops = 2
+n = 5, ops = 3
+n = 6, ops = 3
+n = 7, ops = 3
+n = 8, ops = 4
+...,   ....
+n = 17, ops = 5
+...,   ....
+
+esto es log2(n)
+
+Buscar en internet mejores formas de hacer esto.
+
+8-b) 
+t := n
+do t > 0
+	t := t div 2
+od
+
+El div es divison entera?
+
+Hago tabla con respecto a n:
+n = 1, ops = 1
+n = 2, ops = 1
+n = 3, ops = 2
+n = 4, ops = 2
+n = 5, ops = 2
+n = 6, ops = 3
+n = 7, ops = 3
+n = 8, ops = 4
+
+cant. de operaciones es log2 n (con division entera), es decir lineal.
+
+8-d)
+for i := 1 to n do
+	t := i
+	do t > 0
+		t := t -2
+	od
+od
+
+for i := 1 to 7 do
+	t := 7
+	do t > 0
+		t := t -2
+	od
+od
+ops= 1 + 1 + 2 + 2 = 6 + 3 + 3 = 12 + 4 + 4 = 20
+
+Hago tabla con respecto a n:
+n = 1, ops = 1
+n = 2, ops = 2
+n = 3, ops = 4
+n = 4, ops = 6
+n = 5, ops = 9
+n = 6, ops = 12
+n = 7, ops = 16
+n = 8, ops = 20
+
+n * log2 n
+

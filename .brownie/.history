@@ -1,0 +1,102 @@
+
+# 2021-09-24 10:54:36.248056
++brownie.connect('development')
+
+# 2021-09-24 10:54:46.030469
++network.connect('development')
+
+# 2021-09-24 10:54:57.320685
++network.is
+
+# 2021-09-24 10:55:04.613740
++network.is_connected()
+
+# 2021-09-24 10:55:25.472442
++run accounts
+
+# 2021-09-24 10:55:31.610096
++run --all
+
+# 2021-09-24 10:55:53.825299
++qui
+
+# 2021-09-24 10:55:55.355576
++quit
+
+# 2021-09-24 10:55:57.546880
++quit()
+
+# 2021-09-24 11:30:44.010800
++from brownie import *
+
+# 2021-09-24 11:31:08.603863
++brownie.exceptions.CompilerError
+
+# 2021-09-24 11:31:20.553801
++exception brownie.exceptions.CompilerError
+
+# 2021-09-24 11:32:06.987012
++from brownie import network
+
+# 2021-09-24 11:32:21.761439
++network.connect('accounts')
+
+# 2021-09-24 11:32:55.980794
++from brownie.network import accounts
+
+# 2021-09-24 11:32:58.987531
++accounts
+
+# 2021-09-24 11:33:07.945971
++dir(accounts
+
+# 2021-09-24 11:33:32.522579
++[add,at,clear,load]
+
+# 2021-09-24 11:33:40.641153
++dir(accounts)
+
+# 2021-09-24 11:36:50.171562
++quit
+
+# 2021-09-24 11:36:52.516074
++quit()
+
+# 2021-09-24 11:39:10.845149
++brownie compile --all
+
+# 2021-09-24 11:39:14.665283
++brownie compile
+
+# 2021-09-24 11:39:23.154998
++compile
+
+# 2021-09-24 11:39:27.596851
++quit()
+
+# 2021-09-24 11:57:55.471239
++accounts
+
+# 2021-09-24 11:58:20.260838
++accounts.load()
+
+# 2021-09-24 11:58:26.048176
++accounts.load(Accounts)
+
+# 2021-09-24 11:58:28.049182
++accounts.load(Account)
+
+# 2021-09-24 11:59:03.276221
++from brownie.network import accounts
+
+# 2021-09-24 11:59:06.187375
++accounts
+
+# 2021-09-24 11:59:33.685380
++accounts.default[1]
+
+# 2021-09-24 12:00:12.634073
++ganche-cli
+
+# 2021-09-24 12:00:15.513354
++quit()

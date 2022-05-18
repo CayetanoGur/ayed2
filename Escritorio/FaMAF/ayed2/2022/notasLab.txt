@@ -1,0 +1,13 @@
+.LOG
+
+31/03
+Lab 1
+
+fopen abre archivos y vos le decis si lo lee, lo escribe,etc
+fscanf hace un scanf de un archivo, en vez de usar un standr input (stdin)
+const char es un char y al ser puntero es una cadena de chars (char pointer)
+fclose --> siempre hay que usarlo para ir cerrando los archivos porque sino me puedo quedar sin memoria.
+
+
+En el ej 2 podia solo cambiar FILE *input = stdin; y con eso ya estaba quedaba el codigo igual.
+

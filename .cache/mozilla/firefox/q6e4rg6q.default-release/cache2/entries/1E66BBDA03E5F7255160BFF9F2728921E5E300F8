@@ -1,0 +1,1261 @@
+
+<html lang="es" prefix="og: https://ogp.me/ns#">
+
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>stamping.io  - Blockchain </title>
+  <meta name="description" content="Servicio de sellado de tiempo digital. Timestamping basado en Blockchain y una autoridad de sellado de tiempo que permite probar la existencia de un documento digital en un momento del tiempo">
+  <meta name="keywords" content="stamping.io, timestampig, blockchain, tsa, kpi, registro de evidencias, selllado de tiempo, autoridad de sellado de tiempo, inmutar datos, evidencias forenses">
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index, follow">
+    <meta name="application-name" content="stamping.io">
+    <meta name="lang" content="es">
+    <meta name="origen" content="stamping.io">
+    <meta name="subject" content="noticias">
+    <meta name="organization" content="stamping.io">
+    <meta name="Generator" content="stamping.io">
+    <meta name="locality" content="Lima, Peru">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@stamping.io">
+    <meta name="twitter:title" content="Blockchain para el registro de evidencias digitales con valor legal">
+    <meta name="twitter:image" content="https://www.stamping.io/img/imagen2.gif">
+    <meta name="twitter:description" content="Autoridad de sellado de tiempo que permite probar la existencia de un documento digital, evento o datos en un momento del tiempo">
+
+    
+    
+    <meta property="og:type" content="website">
+
+    <meta property="fb:app_id" content="1787362901560937">
+    <meta property="og:url" content="https://www.stamping.io/">
+    <meta property="og:image" content="https://www.stamping.io/img/imagen2.gif">
+    <meta property="og:image:secure_url" content="https://www.stamping.io/img/imagen2.gif">
+    <meta property="og:image:type" content="image/jpeg" >
+    <meta property="og:image:width" content="600">
+    <meta property="og:image:height" content="315">
+    <meta property="og:image:alt" content="stamping.io basado en blockchain" >
+    <meta property="og:site_name" content="stamping.io">
+    <meta property="og:title" content="Blockchain para el registro de evidencias digitales con valor legal">
+    <meta property="og:description" content="Autoridad de usellado de tiempo que permite probar la existencia de un documento digital, evento o datos en un momento del tiempo">
+
+<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:400,300|Raleway:300,400,900,700italic,700,300,600">
+  <link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css">
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/animate.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css?v=2.0.2">
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    
+  <link href='https://fonts.googleapis.com/css?family=Asap:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Signika' rel='stylesheet' type='text/css'>
+<link rel='stylesheet' id='js_composer_front-css'  href='/css/inicia.css' type='text/css' media='all' />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="/src/grid.js"></script>
+        <script type="text/javascript" src="/src/version.js"></script>
+        <script type="text/javascript" src="/src/detector.js"></script>
+        <script type="text/javascript" src="/src/formatinf.js"></script>
+        <script type="text/javascript" src="/src/errorlevel.js"></script>
+        <script type="text/javascript" src="/src/bitmat.js"></script>
+        <script type="text/javascript" src="/src/datablock.js"></script>
+        <script type="text/javascript" src="/src/bmparser.js"></script>
+        <script type="text/javascript" src="/src/datamask.js"></script>
+        <script type="text/javascript" src="/src/rsdecoder.js"></script>
+        <script type="text/javascript" src="/src/gf256poly.js"></script>
+        <script type="text/javascript" src="/src/gf256.js"></script>
+        <script type="text/javascript" src="/src/decoder.js"></script>
+        <script type="text/javascript" src="/src/qrcode.js"></script>
+        <script type="text/javascript" src="/src/findpat.js"></script>
+        <script type="text/javascript" src="/src/alignpat.js"></script>
+        <script type="text/javascript" src="/src/databr.js"></script>
+        <script type="text/javascript" src="js/sha1.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-storage.js"></script>
+    
+   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script type="text/javascript" src="/js/firebase.js?v=2.0.7"> </script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+ <script type="text/javascript" src="../js/qrcode2.js?v=1.11.214"> </script>
+ 
+<style>
+
+
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  height: 200px;
+  overflow:scroll;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4c5557;
+  color: white;
+}
+
+
+    .qodef-info-box-holder {
+    border: 1px solid #e9e9e9;
+    box-sizing: border-box;
+    padding: 0 22px 25px;
+    text-align: center;
+    }
+    .qodef-info-box-title {
+        font-size: 26px;
+        margin-top: 10px;
+    }
+    .inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    z-index: -1;
+}
+.inputfile + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: white;
+    background-color: black;
+    display: inline-block;
+}
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: #34a1b7;
+}
+.inputfile + label {
+    cursor: pointer; /* "hand" cursor */
+}
+.inputfile:focus + label {
+    outline: 1px dotted #000;
+    outline: -webkit-focus-ring-color auto 5px;
+}
+.inputfile + label * {
+    pointer-events: none;
+}
+.hash {
+    top: -10px;
+    position: relative;
+    font-size: smaller;
+    color: #888686;
+    word-break: break-word;
+}
+.filerow {
+    border: azure;
+    border-style: outset;
+    padding: 10px;
+    border-radius: 7px;
+    border-width: 1;
+    background: #ffffff;
+    width: 90%;
+    padding-bottom: 0;
+    border-bottom: 1px solid #D5D5D5;
+    clear: both;
+    background-color: #FFFFFF;
+    list-style-type: none;
+    border-radius: 5px;
+    border: 1px solid #D5D5D5;
+    margin: 1px 0 1px 0;
+    text-align: start;
+}
+.qr img {
+    width: 120px;
+    height: 120px;
+}
+.hashStatus {
+    border-style: solid;
+    border-width: 0;
+    padding: 10;
+    color: white;
+    border-radius: 10px;
+    border-color: #f6f6f6;
+    margin-bottom: 0px;
+    text-align: center;
+    z-index: 1;
+    margin-left: 10px;
+    padding: 3px 10 3px 10;
+    font-size: smaller;
+    position: relative;
+    right: 20px;
+    float: right;
+    top: -27px;
+}
+.counter{
+  text-align: center;
+  font-size: 100px;
+}
+</style>
+
+</head>
+
+<body style="font-family: Quicksand,sans-serif!important;">
+
+
+
+  <div class="loader"></div>
+  <div id="myDiv">
+    <!--HEADER-->
+    <div class="header">
+      <div class="bg-color" style="background-color: #060c1775;    padding-bottom: 15px;">
+               <header id="main-header">
+          <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+                <!--a class="navbar-brand" href="#"><i class="material-icons" style="font-size:35px;">av_timer</i><span style="position: relative;top: -10px;">Stamping.io</span-->
+                <a class="navbar-brand" href="#"><i class="material-icons" style="font-size:35px;"></i>
+                    <img src="img/logo.png" style="width: 180px;position: absolute;top: 18px;cursor: pointer;">
+               </a>
+                <!--div >
+                     <a href="indexEng.html">
+                        <img src="img/english.png" style="width: 24px;position: absolute;top: 36px;left: 325px;cursor: pointer;">
+                     </a>
+                     <a href="index.html">
+                        <img src="img/spain.png" style="width: 24px;position: absolute;top: 36px;left: 295px;cursor: pointer;">
+                     </a>
+                     
+                </div-->
+                
+                <div>
+                    <a href="https://web.facebook.com/Stampingio-2011321938878311/" target="_black"><img src="img/i1.png" style=" position: absolute;top: 69px;right: 170px;width: 32px;"></a>
+                    <!--img src="img/i2.png" style=" position: absolute;top: 69px;right: 130px;width: 32px;">
+                    <a href="https://twitter.com/wakes_io" target="_black"><img src="img/i3.png" style=" position: absolute;top: 69px;right: 90px;width: 32px;"></a>
+                    <img src="img/i4.png" style=" position: absolute;top: 69px;right: 50px;width: 32px;"-->
+                </div>
+                
+              </div>
+              <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                  <li class="active"><a href="#main-header">Inicio</a></li>
+                  <li class=""><a href="#feature">Funcionamiento</a></li>
+                  
+                  <!--li class=""><a href="http://stamping.io/indexDash.html?lang=en" target='_blank'>Nodos</a></li-->
+                  <!--li class=""><a href="/docs/planes.html" target='_blank'>Tarifas</a></li-->
+
+                  <li class=""><a href="#service">Soluciones</a></li>
+                  <li class=""><a href="#contact2">Tecnolog&iacute;a</a></li>
+                  <!--li class=""><a href="http://doc.stamping.io/v1/">API</a></li-->
+                  
+                  <li class=""><a href="/dashboard/">Dashboard</a></li>
+                  <li class=""><a href="/prensa.html">Prensa</a></li>
+                  <li class=""><a href="https://medium.com/@stamping.io" target="_blank">Blog</a></li>
+                  
+                  <li class=""><a href="/login" target="_blank" style="cursor:pointer;">DATA WALLET</a></li>
+                  <li class=""><a href="/docs/stamping_contactos.html">CONTACTOS</a></li>
+                  <li class=""><a href="https://medium.com/@stamping.io/api-rest-para-registrar-en-la-blockchain-usando-stamping-io-paso-a-paso-f97bce85f506" target="_blank" style="cursor:pointer;font-size: 12px;">API REST</a></li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </header>
+        <div class="wrapper">
+          <div class="container">
+            <div class="row">
+              <div class="banner-info text-center wow fadeIn delay-05s">
+                <!--h1 class="bnr-title">Unete con wakes<span>.io</span></h1-->
+                <p style="height:30px"></p>
+                <h2 class="bnr-sub-title" style="font-size: 44px;text-transform: none;text-transform: none;font-family: Quicksand,sans-serif!important;font-size: 40px;font-weight: 500;line-height: 70px;margin-top: 0!important;margin-bottom: 0!important;letter-spacing: 0;color: rgb(233, 244, 244);">Llevamos la Blockchain a las manos de los ciudadanos</h2>
+                <h3 class="bnr-sub-title" style="margin-top: -23px;margin-bottom: 35px;    font-family: Quicksand,sans-serif!important;">F&aacute;cil, Seguro y Descentralizado</h3>
+                
+                <p class="bnr-para" style="font-size: 17px;width: 97%;    font-size: 20px;font-weight: 400;line-height: 28px;letter-spacing: .5px;font-family: Quicksand,sans-serif!important;">Permite emitir credenciales verificables, otorgar identidad digital, interactuar con smart contract y/o registrar una secuencia de datos en la Blockchain con la finalidad de probar la autoría, existencia, propiedad, integridad y la trazabilidad en un momento del tiempo.</p>
+                <div class="brn-btn">
+                  <a href="https://stamping.io/login" class="btn btn-download" style="margin-bottom: 50px;font-weight: 500;font-size: 16px;">¡Empezar ahora!</a>
+                  <a href="https://medium.com/@stamping.io/whitepaper-de-stamping-io-blockchain-para-registro-de-activos-y-evidencias-digitales-844e3b285771" target="_black" class="btn btn-download" style="margin-bottom: 50px;font-weight: 500;font-size: 16px;">White paper...</a>
+                <a href="https://t.me/joinchat/0lKf6zIJq5k1Mzgx" target="_blank" class="btn btn-download" style="margin-bottom: 50px;font-weight: 500;font-size: 16px;">Grupo en Telegram</a>
+                </div>
+                <p style="height:30px"></p>
+                
+                <!--div class="overlay-detail">
+                  <a href="#feature"><i class="fa fa-angle-down"></i></a>
+                </div-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/ HEADER-->
+    <!---->
+     <section id="feature" class="section-padding wow fadeInUp delay-05s" style="background:white;">
+        
+      <div class="container">
+        <div class="row" style="margin-bottom: 70px;">
+          <div class="col-md-12 text-center "> 
+            <div style="    vertical-align: inherit;box-sizing: border-box;    font-size: 32px;font-weight: 300;font-family: 'Roboto Slab',serif;line-height: 1.1em;margin: 20 120 80 120;  ">
+                <h3 style="  font-size: 32px;font-weight: 400;">Funcionamiento</h3>
+                <h5 style="font-weight: 500;color: #6287a2;font-size: 18px;">Proceso de creación de credenciales en la Blockchain y asociación a una identidad digital descentralizada</h5>
+            </div>    
+          </div>   
+          <img src="img/proceso_stamp.png" style="width: 50%;margin-left: 25%;margin-bottom: 40px;margin-top: -30px;" style1="    width: 31%;right: 36px;float: right;top: 86px;    margin-top: 36px;margin-right: 10px;">
+          <div style1="display:none;">
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="wrap-item text-center">
+              <div class="item-img">
+                <i class="fa fa-file-pdf-o" style="font-size: 60px;color: #2d569f;"></i>
+              </div>
+              
+              <h3 class="pad-bt15" style="font-size: 17px;line-height: 1.36365;margin-bottom: 8px;word-wrap: break-word;color: #6287a2;font-weight: 400;">Generación de documento</h3>
+              <div style="text-align: center;font-size: 15px;line-height: 1.46668;">
+                <p>La aplicación del emisor genera un documento con el contenido que se desea certificar y se firma digitalmente con un agente automatizado (opcional).</p>
+              </div>
+              
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="wrap-item text-center">
+              <div class="item-img">
+                <!--img src="img/mensaje3.jpg" style="width:175px; height:auto;"-->
+                <i class="fa fa-file-excel-o" style="font-size: 60px;color: #2d569f;"></i>
+              </div>
+              <h3 class="pad-bt15" style="font-size: 17px;line-height: 1.36365;margin-bottom: 8px;word-wrap: break-word;color: #6287a2;font-weight: 400;">Cálculo de huella</h3>
+              <div style="text-align: center;font-size: 15px;line-height: 1.46668;">
+                <p>Utilizando algoritmos criptográficos se se calcula el hash (SHA256) del documento y opcionalmente se prepara una metadata que se desee compartir (datos asociados y URL del documento).</p>
+                
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="wrap-item text-center">
+              <div class="item-img">
+                <!--img src="img/mensaje5.png" style="width:auto; height:160px;"-->
+                <i class="fa fa-user-circle-o " style="font-size: 60px;color: #2d569f;"></i>
+              </div>
+              <h3 class="pad-bt15" style="font-size: 17px;line-height: 1.36365;margin-bottom: 8px;word-wrap: break-word;color: #6287a2;font-weight: 400;">Creación de identidad al titular</h3>
+              <div style="text-align: center;font-size: 15px;line-height: 1.46668;">
+                <p>La aplicación le crea o asocia la identidad digital del titular con el cual podrá reclamarla en alguna billetera compatible con el protocolo de identidad digital descentralizada (DIDs)</p>
+                
+               </div>
+            </div> 
+          </div>
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="wrap-item text-center">
+              <div class="item-img">
+                <!--img src="img/mensaje6.png" style="width:auto; height:160px;"-->
+                <i class="fa fa-file-code-o" style="font-size: 60px;color: #2d569f;"></i>
+              </div> 
+              <h3 class="pad-bt15" style="font-size: 17px;line-height: 1.36365;margin-bottom: 8px;word-wrap: break-word;color: #6287a2;font-weight: 400;">Reclamación de credenciales</h3>
+              <div style="text-align: center;font-size: 15px;line-height: 1.46668;">
+              <p>Los usuarios pueden solicitar sus credenciales verificables a las entidades emisoras de acuerdo a las políticas de seguridad especificadas por dichas autoridades</p>
+              </div>
+              <!--p>Si se desea puede registrarse la notificación o la acción de ejecutar el clic en una autoridad de sellado de tiempo (TSA - con valor legal), con la finalidad de dar fé que se ha realizado un determinado evento en un momento determinado.</p-->
+            </div>
+        </div>
+        </div>
+        </div>
+       </div>
+    </section> 
+     
+
+
+
+<center style="position: relative;top: -90px;">
+    <p style="    position: relative;top: 0px;font-size: 30px;font-weight: 500;margin-bottom: 35px;">Cree una credencial verificable a un documento</p>
+<div class="vc_row wpb_row vc_inner vc_row-fluid" style="    width: 95%;">
+        <input type="file" id="files" name="files[]" data-multiple-caption="{count} files selected"  class="inputfile" />  
+                
+   
+                <div  id="drop_zone" ondragover="handleFileSelect2(event)" style="top: -20px;position: relative;z-index: 0;width: 86%;border: 2px dashed #bbb;border-radius: 5px;min-height: 162px;padding: 31px;text-align: center;color: #b7b8b9;height: 128px;background: #f0f0ec;    margin: 0px;    " >
+                    <label for="files" style="z-index: 90;cursor: pointer;"><center>
+                <svg for="files" width="70px"  viewBox="0 0 86 63" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g id="Desktop-HD-Copy-3" transform="translate(-557.000000, -404.000000)" fill="#6D7476">
+                                <g id="Group" transform="translate(440.000000, 404.000000)">
+                                    <path d="M185.933,20.918 C183.546,8.825 172.991,0 160.391,0 C151.791,0 143.931,4.118 139.051,11.097 C126.558,11.833 117,20.869 117,32.271 C117,44.078 126.491,53.683 138.157,53.683 C139.814,53.683 141.157,52.34 141.157,50.683 C141.157,49.026 139.814,47.683 138.157,47.683 C129.8,47.683 123,40.769 123,32.271 C123,23.593 130.611,17.048 140.703,17.048 C141.748,17.048 142.718,16.504 143.263,15.612 C146.94,9.592 153.343,5.999 160.39,5.999 C170.769,5.999 179.345,13.777 180.339,24.091 C180.487,25.63 181.78,26.803 183.325,26.803 C191.442,26.803 196.288,30.657 196.288,37.114 C196.289,42.843 191.548,47.683 185.937,47.683 L177.042,47.683 C175.385,47.683 174.042,49.026 174.042,50.683 C174.042,52.34 175.385,53.683 177.042,53.683 L185.937,53.683 C194.954,53.683 202.29,46.25 202.29,37.115 C202.289,27.975 195.956,21.819 185.933,20.918 L185.933,20.918 Z M156.045,31.828 L145.471,42.403 C144.3,43.575 144.3,45.474 145.471,46.645 C146.642,47.817 148.542,47.817 149.714,46.645 L155.042,41.317 L155.042,59.683 C155.042,61.34 156.385,62.683 158.042,62.683 C159.699,62.683 161.042,61.34 161.042,59.683 L161.042,41.067 L166.62,46.645 C167.206,47.231 167.974,47.524 168.741,47.524 C169.508,47.524 170.276,47.231 170.862,46.645 C172.034,45.474 172.034,43.575 170.862,42.403 L160.288,31.828 C159.163,30.702 157.171,30.702 156.045,31.828 Z" id="Shape"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                
+                </center></label>
+                    
+                    <p id="comment"  style="text-align: center;font-size: 15px;color: #6D7476;font-weight: 400;margin: 0px;margin-top: 13px;">Arrastre y suelte el archivo que desea generarle una credencial Blockchain</p>
+                </div>
+                <div style="margin-bottom: 0px;    top: -16px;position: relative;">
+                    <input id="qrpk" type="checkbox" name="qrpk" value="YES" checked><span id="qrpklabel"> Si se detecta un c&oacute;digo QR, ser&aacute; usado como identificador</span>
+                </div>
+                
+                
+                <output id="list1" style="text-align: left;font-size: 13px;color: #868674;top: 13px;left: 4%;position: relative;"></output>
+                <output id="list" ></output>
+ 
+</div>
+</center>
+<script>
+var lang="es"
+ 
+var sha256 = function sha256(ascii) {
+	function rightRotate(value, amount) {
+		return (value>>>amount) | (value<<(32 - amount));
+	};
+	
+	var mathPow = Math.pow;
+	var maxWord = mathPow(2, 32);
+	var lengthProperty = 'length'
+	var i, j; // Used as a counter across the whole file
+	var result = ''
+
+	var words = [];
+	var asciiBitLength = ascii[lengthProperty]*8;
+	
+	//* caching results is optional - remove/add slash from front of this line to toggle
+	// Initial hash value: first 32 bits of the fractional parts of the square roots of the first 8 primes
+	// (we actually calculate the first 64, but extra values are just ignored)
+	var hash = sha256.h = sha256.h || [];
+	// Round constants: first 32 bits of the fractional parts of the cube roots of the first 64 primes
+	var k = sha256.k = sha256.k || [];
+	var primeCounter = k[lengthProperty];
+	/*/
+	var hash = [], k = [];
+	var primeCounter = 0;
+	//*/
+
+	var isComposite = {};
+	for (var candidate = 2; primeCounter < 64; candidate++) {
+		if (!isComposite[candidate]) {
+			for (i = 0; i < 313; i += candidate) {
+				isComposite[i] = candidate;
+			}
+			hash[primeCounter] = (mathPow(candidate, .5)*maxWord)|0;
+			k[primeCounter++] = (mathPow(candidate, 1/3)*maxWord)|0;
+		}
+	}
+	
+	ascii += '\x80' // Append Ƈ' bit (plus zero padding)
+	while (ascii[lengthProperty]%64 - 56) ascii += '\x00' // More zero padding
+	for (i = 0; i < ascii[lengthProperty]; i++) {
+		j = ascii.charCodeAt(i);
+		if (j>>8) return; // ASCII check: only accept characters in range 0-255
+		words[i>>2] |= j << ((3 - i)%4)*8;
+	}
+	words[words[lengthProperty]] = ((asciiBitLength/maxWord)|0);
+	words[words[lengthProperty]] = (asciiBitLength)
+	
+	// process each chunk
+	for (j = 0; j < words[lengthProperty];) {
+		var w = words.slice(j, j += 16); // The message is expanded into 64 words as part of the iteration
+		var oldHash = hash;
+		// This is now the undefinedworking hash", often labelled as variables a...g
+		// (we have to truncate as well, otherwise extra entries at the end accumulate
+		hash = hash.slice(0, 8);
+		
+		for (i = 0; i < 64; i++) {
+			var i2 = i + j;
+			// Expand the message into 64 words
+			// Used below if 
+			var w15 = w[i - 15], w2 = w[i - 2];
+
+			// Iterate
+			var a = hash[0], e = hash[4];
+			var temp1 = hash[7]
+				+ (rightRotate(e, 6) ^ rightRotate(e, 11) ^ rightRotate(e, 25)) // S1
+				+ ((e&hash[5])^((~e)&hash[6])) // ch
+				+ k[i]
+				// Expand the message schedule if needed
+				+ (w[i] = (i < 16) ? w[i] : (
+						w[i - 16]
+						+ (rightRotate(w15, 7) ^ rightRotate(w15, 18) ^ (w15>>>3)) // s0
+						+ w[i - 7]
+						+ (rightRotate(w2, 17) ^ rightRotate(w2, 19) ^ (w2>>>10)) // s1
+					)|0
+				);
+			// This is only used once, so *could* be moved below, but it only saves 4 bytes and makes things unreadble
+			var temp2 = (rightRotate(a, 2) ^ rightRotate(a, 13) ^ rightRotate(a, 22)) // S0
+				+ ((a&hash[1])^(a&hash[2])^(hash[1]&hash[2])); // maj
+			
+			hash = [(temp1 + temp2)|0].concat(hash); // We don't bother trimming off the extra ones, they're harmless as long as we're truncating when we do the slice()
+			hash[4] = (hash[4] + temp1)|0;
+		}
+		
+		for (i = 0; i < 8; i++) {
+			hash[i] = (hash[i] + oldHash[i])|0;
+		}
+	}
+	
+	for (i = 0; i < 8; i++) {
+		for (j = 3; j + 1; j--) {
+			var b = (hash[i]>>(j*8))&255;
+			result += ((b < 16) ? 0 : '') + b.toString(16);
+		}
+	}
+	return result;
+};
+
+function copyClipboard() {
+  var copyText = document.getElementById("myaddr");
+  copyText.select();
+  document.execCommand("copy");
+  msgOk("Stamping.io", "URL copiado en el clipboard: "+ copyText.value, "Entendido", "")
+  
+}
+getMB=function(bytes) {
+     var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+    if (bytes == 0) return '0 bytes';
+    var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+    if (i == 0) return bytes + ' ' + sizes[i];
+    return (bytes / Math.pow(1024, i)).toFixed(1) + ' ' + sizes[i];
+}
+
+
+  handleFileSelect1 = function(evt) {
+    evt.stopPropagation();
+    evt.preventDefault();
+    evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+        document.getElementById('drop_zone').style.border = "2px dashed #bbb"
+    document.getElementById('drop_zone').style.background = "#f0f0ec"
+    
+    //border: 2px dashed #1b1313;
+  }
+  
+  handleFileSelect2 = function(evt) {
+    evt.stopPropagation();
+    evt.preventDefault();
+    evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+    
+    document.getElementById('drop_zone').style.border = "2px dashed #1b1313"
+    document.getElementById('drop_zone').style.background = "#e6e6e2;"
+    
+    //border: 2px dashed #1b1313;
+  }
+  
+  var urlDoc=""
+  function handleFileSelect( evt) {
+    console.log("Aquiiii")
+    evt.stopPropagation();
+    evt.preventDefault();
+    console.log(evt)
+    console.log(typeof evt.dataTransfer)
+    if (typeof evt.dataTransfer=="undefined") {
+        var files = evt.target.files; // FileList object.
+    } else {
+    var files = evt.dataTransfer.files; // FileList object.
+    }
+    
+    var output1 = [];
+    output1.push('<div><strong style="font-size: 16px;color: indianred;font-style: normal;">', 'Waiting for Hashing calculate. ',files.length,' files','</strong></div>');
+    document.getElementById('list1').innerHTML = '<div>' + output1.join('') + '</div>';
+    var output = [];
+    // files is a FileList of File objects. List some properties.
+    var total=0
+    for (var i = 0, f; f = files[i]; i++) {
+        
+        var reader = new FileReader();
+
+      // Closure to capture the file information.
+      reader.onload = (function(theFile) {
+        return function(e) {
+
+            // A qrcode with "ourcodeworld.com" as value in format base64 encoded
+           
+            /**
+             * The function decodeImageFromBase64 expects as first parameter a base64 string from a QRCode.
+             * As second parameter the callback that expects the data from the QRCode as first parameter.
+             */
+            function decodeImageFromBase64(data, callback){
+                // set callback
+                qrcode.callback = callback;
+                // Start decoding
+                qrcode.decode(data)
+            }
+            var xshowqr="";
+            decodeImageFromBase64(e.target.result,function(decodedInformation){
+                    if (decodedInformation=="Failed to load the image") {
+                        decodedInformation="NOT_QR"
+                        xshowqr="display:none;";
+                        
+                    }
+                    if (decodedInformation=="error decoding QR Code") {
+                        decodedInformation="NOT_QR"
+                        xshowqr="display:none;";
+                    }
+                    //alert("mSG="+decodedInformation);
+
+        
+                total++;
+                //console.log(total)
+                if (total==files.length) {
+                    output1 = [];
+                    //output1.push('<div><strong>','Finish' ,files.length,' files ','</strong></div>');
+                    output1.push('.');
+                    document.getElementById('list1').innerHTML = '<div>' + output1.join('') + '</div>';
+                } else {
+                    output1 = [];
+                    output1.push('.');
+                    document.getElementById('list1').innerHTML = '<div>' + output1.join('') + '</div>';
+                }
+              txtFileBase64 =     e.target.result;
+            
+              sha256txt =  sha256(txtFileBase64)
+              
+              var qrpk = document.getElementById('qrpk').value;
+              if (qrpk=="YES" && decodedInformation!=="NOT_QR") {
+                    trxId = hex_sha1(decodedInformation);
+                } else {
+                    trxId   =   hex_sha1(sha256txt)
+                }
+                txt="<img style='width: 120px;position: relative;float: left;border-width: 1;border-style: solid;border-radius: 5px;top: 11px;margin-bottom: 14px;' src='"+txtFileBase64+"'>"
+                //userId = firebase.auth().currentUser.uid;
+                
+                //firebase.database().ref('transactions/' + userId+"/"+trxId).once('value').then(function(snapshot) {
+                        //console.log("*** Detecto "+'transactions/' + userId+"/"+trxId+"*** ")
+                        //console.log(snapshot.val())
+                        imgflg=""
+                        if (getType(escape(theFile.type))!== "fa-file-image-o") {
+                            imgflg="display:none"
+                        }
+                        
+                        if (false) { 
+                            if (lang=="es") {
+                                txtBoton="Ver"
+                                msg1=" El documento ha sido detectado"
+                            } else {
+                                msg1=" This document has been detected"
+                                txtBoton="Show"                         
+                            }
+                            txt="<div style='position: absolute;'><img style='"+imgflg+";width: 120px;position: relative;float: left;border-width: 1;border-style: solid;border-radius: 5px;top: 11px;margin-bottom: 14px;    left: -50px;top: 0px;' src='"+txtFileBase64+"'><span style='float1: left;color: red;font-size: 12px;font-weight: 500;position: relative;    position: relative;left: -39px;top: -5px;'>"+msg1+"</span></div>"
+                            linkAction='<span onclick="window.open(\'https://stamping.io/explorer/?trxid='+trxId+'&lang='+lang+'\')" >'
+                            
+                        } else {
+                            if (lang=="es") {
+                                txtBoton="Estampar"
+                            } else {
+                                txtBoton="Submit"                         
+                            }
+                            txt=""
+                            linkAction='<span onclick="sendFileFree(\''+sha256txt+'\',\''+escape(theFile.name)+'\',\''+decodedInformation+'\' ,\''+qrpk+'\',\''+theFile.size+'\',\''+txtFileBase64+'\',\''+theFile.name+'\',\''+theFile.type+'\')" >'
+                        }
+                        console.log(theFile)
+                        output.push('<div id="filerow" class="filerow" style="padding-bottom: 17px;padding: 35px 10px 42px 18px;"><div style="position: absolute;">'+
+                                        '<i class="w3-xxlarge fa ',getType(escape(theFile.type)),'" style="font-size: 40px;padding-left: 6px;   color: gray;"></i>',
+                                     '</div>'+
+                                     '<div style="margin-left: 37px;font-size: .9em;    border-radius: 6px;"><strong style="color: black;margin-left: 20px;">',' ', escape(theFile.name), '</strong><p style="    margin: 0;margin-left: 20px;"> (', theFile.type || 'n/a', ') - ',
+                                          getMB(theFile.size), ' bytes, last modified: ',
+                                          theFile.lastModifiedDate ? theFile.lastModifiedDate.toLocaleDateString() : 'n/a',
+                                          '</p><div class="hash" style="margin-left: 20px;"><br> <b>sha-256:</b> ',sha256txt,'<br><div style="float:left;"> <a href="https://stamping.io/explorer/?trxid=',trxId,'&lang=es" target="_blank"><b>id:</b> ',trxId,'<p></a>',txt,'</p></div><span><img alt="'+decodedInformation+'" src="/img/qr.png" style="position: relative;top: -28px;left: 210px;width: 50px;float: left;'+xshowqr+'"></span></div>',linkAction,'<span class="hashStatus" style="background: black;padding: 12px 20px 12px 20px;cursor: pointer;top: -33px;">'+txtBoton+'</span></div></span></div>');
+                                          
+                        msmEnd='<center>'+
+                                '<div id="msmEnd" style="display: none;font-size: 18px;font-weight: 500;color: white;text-align: center;background: #a7955f;padding: 20px;border-radius: 10px;width: 80%;">'+
+                                   '<div id="qr" class="qr" style="width: 215px;"></div>'+
+                                   '<p style="font-size: 16px;padding: 10px;">Usted puede hacer seguimiento al estampado de su documento en ingresando a la siguiente URL, si desea pegue el código QR en su documento para que validen su autenticidad</p>'+
+                                   '<div style="    width: 3%;">'+
+                                      '<input id="myaddr" value="'+urlDoc+'&lang=es" style="background: none;border-style: none;width: 308px;font-size: 9px;">'+
+                                      '<button class="fa fa-clone" onclick="copyClipboard()" style="background: none;border-style: none;padding-top: 3px;">'+
+                                      '</button>'+ 
+                                    '</div>'+
+                                    '<a id="myaddr1" href="'+urlDoc+'&lang=es" target="_blank" style="text-decoration: dashed;color: wheat;font-size: 12px;" target="_blank">'+
+                                      '<div style="background: black;padding: 12px 20px 12px 20px;cursor: pointer;color: white;border-radius: 10px;    width: 120px;margin-left: 160px;    position: relative;top: 29px;">'+
+                                        'Ir al Enlace'+
+                                      '</div>'+
+                                    '</a>'+
+                                '</div>'+
+                            '</center>';
+                             document.getElementById('list').innerHTML = '<ul style="padding-left: 0px;margin-top: 20px;">' + output.join('') + '</ul>'+msmEnd;
+                                
+                //});
+                
+                
+                
+                
+            });
+
+        };
+      })(f);
+
+      // Read in the image file as a data URL.
+      reader.readAsDataURL(f);          
+                  
+
+                              
+    }
+    
+    document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
+  }
+  function getType(aExt) {
+    if (typeof aExt==="undefined" || aExt==="") {
+        aExt="Ninguno"
+    }
+    opcion= aExt.substr(0,5)
+    //console.log(opcion)
+    
+    
+    if (aExt=="application/vnd.openxmlformats-officedocument.wordprocessingml.document") {
+        return "fa-file-word-o"
+    } else if (opcion=="image") {
+        return "fa-file-image-o"
+    } else if (opcion=="audio") {
+        return "fa-file-audio-o"
+    } else if (opcion=="video") {
+        return "fa-file-video-o"
+    } else if (aExt=="application/pdf") {
+        return "fa-file-pdf-o"
+    } else if (aExt=="application/vnd.ms-powerpoint" || aExt=="application/vnd.openxmlformats-officedocument.presentationml.presentation") {
+        return "fa-file-powerpoint-o"
+    } else if (aExt=="text/plain") {
+        return "fa-file-text-o"
+    } else if (aExt=="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet") {
+        return "fa-file-excel-o"
+    } else if (aExt=="application/vnd.ms-project") {
+        return "fa-file-o"
+    } else if (aExt=="application/zip") {
+        return "fa-file-zip-o"
+    } else {
+        return "fa-file-o"
+    } 
+  }    
+  
+  function handleDragOver(evt) {
+    //evt.stopPropagation();
+    //evt.preventDefault();
+    //evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+  }
+
+  // Setup the dnd listeners.
+  var dropZone = document.getElementById('drop_zone');
+  //dropZone.addEventListener('dragover', handleDragOver, false);
+  dropZone.addEventListener('drop', handleFileSelect, false);
+  document.getElementById('files').addEventListener('change', handleFileSelect, false);
+</script>
+
+
+
+
+<center>
+
+
+<p style="    position: relative;top: -33px;font-size: 25px;font-weight: 500;margin-bottom: 20px;">Últimas 20 transacciones</p>
+    
+
+<div class="vc_row wpb_row vc_inner vc_row-fluid" style="    width: 95%;">
+<table id="customers" style="overflow-y:scroll" >
+  
+    
+<script>
+function getHashShort(aHash, aNum) {return (aHash.substr(0,aNum)+"..."+aHash.substr(-aNum))}
+getFecha=function(aTimeStamp) {
+   var d = new Date()
+   var n = d.getTimezoneOffset(); //Minutos de diferencia de la Hora Mundial
+  
+    var u = new Date(aTimeStamp)
+    u.setHours(
+    u.getHours()-n/60)
+   // alert (u.toGMTString())
+    var  hora=u.getUTCHours()
+    var minuto=u.getUTCMinutes()
+    var segundo = u.getUTCSeconds()
+    //+n/60
+    var AMPM="AM"
+    if (hora>12) {
+        hora=hora-12
+        AMPM="PM"
+    }
+    return  ('0' + u.getUTCDate()).slice(-2) +
+        '/' + ('0' + (u.getUTCMonth()+1)).slice(-2) +
+         '/' + (u.getUTCFullYear()) + 
+        ' ' + ('0' + hora).slice(-2)+":"+minuto+ ":"+segundo+" "+AMPM
+   
+} 
+
+
+    var request = new XMLHttpRequest(); 
+    request.open('GET', 'https://api.stamping.io/getData.php');
+    fila="<tr><th style='text-align: center;background: #242A5A;'>Hash id</th><th style='text-align: center;background: #242A5A;'>Data Wallet</th><th style='text-align: center;background: #242A5A;'>Token</th><th style='text-align: center;background: #242A5A;'>NFT/Asset Hash</th><th style='text-align: center;background: #242A5A;'>LACChain TX</th></tr>"
+    request.onreadystatechange = function () {
+        if (this.readyState === 4) {
+            var myObj = JSON.parse(this.responseText);
+            console.log("myObj")
+            console.log(myObj)
+            console.log(myObj.data.length)
+            
+            for (var i = 0; i < myObj.data.length; i+=1) {
+                console.log(myObj.data[i])
+                fila = fila+ '  <tr style="font-size: 12px;">'
+                //fila = fila+ '     <td>'+getFecha(Number(myObj.data[i].timestamp))+'</td>'
+                fila = fila+ '     <td><div><stamp style="font-size: 11px;text-align: right;color: #4c5557;float: right;"><spam>Block number: </spam>'+myObj.data[i].id+'</stamp><br><stamp style="float: right;">'+getFecha(Number(myObj.data[i].timestamp))+'</spam></div></td>'
+                fila = fila+ '     <td><a href="https://stamping.io/explorer/user/?userid='+myObj.data[i].userid+'" target="_blank">'+myObj.data[i].userid+'</a></td>'
+                fila = fila+ '     <td><a href="https://stamping.io/api/hash/certificate/?hash='+myObj.data[i].hash+'" > <i class="icon fade-5 icon-lg fa fa-file" style="opacity: 0.5;font-size: 1.38em;margin-right: 10px;"></i> </a> <a href="https://stamping.io/explorer/?trxid='+myObj.data[i].trxtId+'" target="_blank">'+getHashShort(myObj.data[i].trxtId,12)+'</a></td>'
+                fila = fila+ '     <td>'+getHashShort(myObj.data[i].hash,12)+'</td>'
+                fila = fila+ '     <td><a href="https://explorer.lacchain.net/tx/'+myObj.data[i].lacchain+'" target="_blank">'+getHashShort(myObj.data[i].lacchain,12)+'</a></td>'
+                fila = fila+ '  </tr>'
+                
+              
+
+            };
+            document.getElementById('customers').innerHTML =fila
+        }    
+     
+    } 
+    request.send()
+
+</script>
+
+
+ </table>
+
+    
+    
+
+</div>
+</center>
+
+
+
+    
+    <section id="service" class="section-padding wow fadeIn delay-05s" style="margin-top: 60px;padding: 0px;top: -120px;position1: relative;    background: #4c5557;    padding-bottom: 80px;">
+      <div class="container" style="padding-top: 60px; color:white;">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h3 class="service-title pad-bt15" style="color: #d3e4f5;margin-top: 40px;text-transform: none;font-weight: 500;">Soluciones</h3>
+                <p class="sub-title pad-bt15">Nuestra soluciones permiten interacturar con contratos inteligentes desplegados en redes blockchain con la finalidad de verificar la existencia, propiedad e integridad de sus documentos o credenciales en un momento del tiempo, sin posibilidad de ningún tipo de repudio.</p>
+                <hr class="bottom-line" style="background: #d3e4f5;">
+            </div>
+        <div style="height: 60px;"></div>
+
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="wrap-item text-center">
+              <div class="item-img">
+                <!--img src="img/mensaje4.jpg" style="width:auto; height:160px;"-->
+                <i class="fa fa-graduation-cap" style="font-size: 100px;color: #d3e4f5;"></i>
+              </div>
+              
+              <h3 class="pad-bt15" style="font-size: 22px;line-height: 1.36365;margin-bottom: 8px;word-wrap: break-word;color: #d3e4f5;font-weight: 400;">Certificación digital</h3>
+              <h4 style="margin-top: -15px;"><a href="https://registrado.org" target="_blank" style="color: white;">Registrado.org</a></h4>
+              <div style="text-align: left;font-size: 15px;line-height: 1.46668;">
+                <p style="margin-top: 35px;">Plataforma que permite diseñar impactantes certificados para demostrar la participación de los asistentes a un curso, taller, seminario o evento. Se crea un código QR que a través de la blockchain se puede validar fácilmente su autenticidad e integridad.</p>
+              </div>
+              
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="wrap-item text-center">
+              <div class="item-img">
+                <!--img src="img/mensaje3.jpg" style="width:175px; height:auto;"-->
+                <i class="fa fa-lightbulb-o" style="font-size: 100px;color: #d3e4f5;"></i>
+              </div>
+              <h3 class="pad-bt15" style="font-size: 22px;line-height: 1.36365;margin-bottom: 8px;word-wrap: break-word;color: #d3e4f5;font-weight: 400;">Propiedad intelectual</h3>
+              <h4 style="margin-top: -15px;"><a href="https://leftherian.com" target="_blank" style="color: white;">Leftherian.com</a></h4>
+              <div style="text-align: left;font-size: 15px;line-height: 1.46668;">
+                <p style="margin-top: 35px;">Permite crear una prueba razonable de la primera divulgaci&oacute;n de una obra que le permita comprobar ante una disputa legal el derecho de propiedad intelectual, patrimonial y/o derechos morales.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="wrap-item text-center">
+              <div class="item-img">
+                <!--img src="img/mensaje5.png" style="width:auto; height:160px;"-->
+                <i class="fa fa-clock-o" style="font-size: 100px;color: #d3e4f5;"></i>
+              </div>
+              <h3 class="pad-bt15" style="font-size: 22px;line-height: 1.36365;margin-bottom: 8px;word-wrap: break-word;color: #d3e4f5;font-weight: 400;">Sello de tiempo</h3>
+              <h4 style="margin-top: -15px;"><a href="https://medium.com/@stamping.io/api-rest-para-registrar-en-la-blockchain-usando-stamping-io-paso-a-paso-f97bce85f506" target="_blank" style="color: white;">api.stamping.io</a></h4>
+              <div style="text-align: left;font-size: 15px;line-height: 1.46668;">
+                <p style="margin-top: 35px;">Nuestra plataforma sirve como un testigo digital entre 2 &oacute; m&aacute;s organizaciones que intercambian informaci&oacute;n, permitiendo que todos los involucrados cuenten con un sellado de tiempo que les permita resolver cualquier conflicto. <a href="https://www.stamping.io/docs/blockchain_intercambio_electronico_datos.html" target="_blank" style="color:white;">Leer art&iacute;culo.</a></p>
+                
+               </div>
+            </div>
+          </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="wrap-item text-center">
+              <div class="item-img">
+                <!--img src="img/mensaje6.png" style="width:auto; height:160px;"-->
+                <i class="fa fa-diamond" style="font-size: 100px;color: #d3e4f5;"></i>
+              </div> 
+              <h3 class="pad-bt15" style="font-size: 22px;line-height: 1.36365;margin-bottom: 8px;word-wrap: break-word;color: #d3e4f5;font-weight: 400;">NFT / IPFS</h3>
+              <h4 style="margin-top: -15px;"><a href="https://criptopoap.com" target="_blank" style="color: white;">Criptopoap.com</a></h4>
+              <div style="text-align: left;font-size: 15px;line-height: 1.46668;">
+              <p style="margin-top: 35px;">Plataforma que permite a los cripto artistas el registro de sus obras en servidores IPFS y registrar la propiedad en redes blockchain como: Lacchain (LAC), Binance Smart chain (BNB), Ethereum (ETH), Avanche (AVAX), polygon (MATIC), poa.network (xDAI), etc.</p>
+              </div>
+              <!--p>Si se desea puede registrarse la notificación o la acción de ejecutar el clic en una autoridad de sellado de tiempo (TSA - con valor legal), con la finalidad de dar fé que se ha realizado un determinado evento en un momento determinado.</p-->
+            </div>
+        </div>
+        <br>
+        </div>
+        <div style="height: 80px;"></div>
+        <div class="row">
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="wrap-item text-center">
+              <div class="item-img">
+                <!--img src="img/mensaje4.jpg" style="width:auto; height:160px;"-->
+                <i class="fa fa-file-code-o" style="font-size: 100px;color: #d3e4f5;"></i>
+              </div>
+              
+              <h3 class="pad-bt15" style="font-size: 22px;line-height: 1.36365;margin-bottom: 8px;word-wrap: break-word;color: #d3e4f5;font-weight: 400;">Nodos escritores</h3>
+              <h4 style="margin-top: -15px;"><a href="https://lacchain.net" target="_blank" style="color: white;">Lacchain.net</a></h4>
+              <div style="text-align: left;font-size: 15px;line-height: 1.46668;">
+                <p style="margin-top: 35px;">Los nodos de Stamping.io le permite explotar cualquier red Blockchain que utilicen la máquina virtual de Ethereum (LACChain, Hyperledger Besu, BSC, POA, etc). Puede crear sus propios smart contracts e interactuar con ellos en forma descentralizada y sin tener que desarrollar programas sofisticados.</p>
+              </div>
+              
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="wrap-item text-center">
+              <div class="item-img">
+                <!--img src="img/mensaje3.jpg" style="width:175px; height:auto;"-->
+                <i class="fa fa-file-pdf-o" style="font-size: 100px;color: #d3e4f5;"></i>
+              </div>
+              <h3 class="pad-bt15" style="font-size: 22px;line-height: 1.36365;margin-bottom: 8px;word-wrap: break-word;color: #d3e4f5;font-weight: 400;">Firmas electrónicas</h3>
+              <h4 style="margin-top: -15px;"><a href="https://appcuerdo.com" target="_blank" style="color: white;">Appcuerdo.com</a></h4>
+              <div style="text-align: left;font-size: 15px;line-height: 1.46668;">
+                <p style="margin-top: 35px;">Plataforma que permite firmar acuerdos de manera sencilla. Se integra con bases de datos biométricas gubernamentales antes de otorgar una identidad digital, se basa en llaves asimétricas que le permitirá realizar firmas electrónicas en la Blockchain. Para darle mayor seguridad legal, el documento se firma con un agente automatizado.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="wrap-item text-center">
+              <div class="item-img">
+                <!--img src="img/mensaje5.png" style="width:auto; height:160px;"-->
+                <i class="fa fa-address-card-o" style="font-size: 100px;color: #d3e4f5;"></i>
+              </div>
+              <h3 class="pad-bt15" style="font-size: 22px;line-height: 1.36365;margin-bottom: 8px;word-wrap: break-word;color: #d3e4f5;font-weight: 400;">Registro de identidad</h3>
+              <h4 style="margin-top: -15px;"><a href="https://0xaddress.com" target="_blank" style="color: white;">0xaddress.com</a></h4>
+              <div style="text-align: left;font-size: 15px;line-height: 1.46668;">
+                <p style="margin-top: 35px;">Billetera (digital wallet) que permite llevar la blockchain a la mano de los ciudadanos.  Permire recibir, presentar y validad credenciales verificables; asi como, recibir o transferir tokens fungibles y no fungibles.</p>
+               </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="wrap-item text-center">
+              <div class="item-img">
+                <!--img src="img/mensaje6.png" style="width:auto; height:160px;"-->
+                <i class="fa fa-snowflake-o " style="font-size: 100px;color: #d3e4f5;"></i>
+              </div> 
+              <h3 class="pad-bt15" style="font-size: 22px;line-height: 1.36365;margin-bottom: 8px;word-wrap: break-word;color: #d3e4f5;font-weight: 400;">Trazabilidad digital</h3>
+              <h4 style="margin-top: -15px;"><a href="https://rastrar.com" target="_blank" style="color: white;">Rastrar.com</a></h4>
+              <div style="text-align: left;font-size: 15px;line-height: 1.46668;">
+              <p style="margin-top: 35px;">Solución que permite otorgar identidad digital a los productores usando tarjetas criptográficas (agroCard) con la finalidad de certificar las actividades realizadas en el campo, las tareas en el proceso de transformación hasta la entrega al comprador final.  Esta solución cuenta con un herramienta que permite trazar toda la cadena de suministros asociados a un lote de producción.</p>
+              </div>
+            </div>
+        </div>
+        </div>     
+
+
+        <!--center>
+            <h2 style="margin-top: 50px;margin-bottom: -20px;color: #d3e4f5;">Trazabilidad de activos digitales</h2>
+            <div style="margin-top: 50px;    border-radius: 15px;margin-bottom: 20px;">
+                <img src="/img/stamping_hash.png" style="border-radius: 15px;    width: 80%;">
+            </div>    
+        </center-->
+        
+      </div>
+    </section>
+    <!---->
+    
+    <section id="contact2" class="section-padding wow fadeInUp delay-05s" style="background:white;">
+        
+      <div class="container">
+        <div class="row" style="margin-bottom: 70px;">
+          <div class="col-md-12 text-center "> 
+            <div style="    vertical-align: inherit;box-sizing: border-box;    font-size: 32px;font-weight: 300;font-family: 'Roboto Slab',serif;line-height: 1.1em;margin: 80 120 80 120;  ">
+                <h1 style="font-weight: 400;">Nuestra tecnología</h1>
+                <h3>Permite la tokenización de activos digitales, emitir credenciales verificables o realizar notariado digital a sus transacciones o a sus documentos</h3>
+                <h5 style="font-weight: 400;">(Solo 10 minutos lo separan de usar la Blockchain)</h5>
+            </div>    
+          </div>
+        <div>
+          <h3 style="margin-left: 3%;margin-bottom: 50px;">Caso 1: Tokenización de activos digitales</h3>
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="wrap-item text-center">
+              <div class="item-img">
+                <i class="fa fa-flash" style="font-size: 60px;color: #6287a2;"></i>
+              </div>
+              
+              <h3 class="pad-bt15" style="font-size: 17px;line-height: 1.36365;margin-bottom: 8px;word-wrap: break-word;color: #6287a2;font-weight: 400;">¿Qué registramos?</h3>
+              <div style="text-align: center;font-size: 15px;line-height: 1.46668;">
+                <p style="font-family: sans-serif;">Utilizamos la tecnolog&iacute;a Blockchain para representa un activo digital o un documento, a través de tokens digitales fungibles (ERC20) o no fungibles (ERC721).</p>
+              </div>
+              
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="wrap-item text-center">
+              <div class="item-img">
+                <!--img src="img/mensaje3.jpg" style="width:175px; height:auto;"-->
+                <i class="fa fa-history" style="font-size: 60px;color: #6287a2;"></i>
+              </div>
+              <h3 class="pad-bt15" style="font-size: 17px;line-height: 1.36365;margin-bottom: 8px;word-wrap: break-word;color: #6287a2;font-weight: 400;">¿Qué trazamos?</h3>
+              <div style="text-align: center;font-size: 15px;line-height: 1.46668;">
+                <p style="font-family: sans-serif;">Registramos todos los cambios en los atributos del activo, las transferencias de propiedad o cualquier acci&oacute;n relacionada con el token.</p>
+                
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="wrap-item text-center">
+              <div class="item-img">
+                <!--img src="img/mensaje5.png" style="width:auto; height:160px;"-->
+                <i class="fa fa-certificate" style="font-size: 60px;color: #6287a2;"></i>
+              </div>
+              <h3 class="pad-bt15" style="font-size: 17px;line-height: 1.36365;margin-bottom: 8px;word-wrap: break-word;color: #6287a2;font-weight: 400;">¿Qué verificamos?</h3>
+              <div style="text-align: center;font-size: 15px;line-height: 1.46668;">
+                <p style="font-family: sans-serif;">Se puede demostrar facilmente que un token digital ha existido en un momento del tiempo, así como verificar la historia de su trazabilidad.</p>
+                
+               </div>
+            </div> 
+          </div>
+          <div class="col-md-3 col-sm-6 col-xs-12" style="background: #f3f2f2;padding: 20px;">
+            <div class="wrap-item text-center">
+
+              <h3 class="pad-bt15" style="font-size: 17px;line-height: 1.36365;margin-bottom: 8px;word-wrap: break-word;color: #6287a2;font-weight: 400;"></h3>
+              <div style="text-align: center;font-size: 15px;line-height: 1.46668;">
+              <h3 class="pad-bt15" style="font-size: 17px;line-height: 1.36365;margin-bottom: 8px;word-wrap: break-word;color: #6287a2;font-weight: 400;">¿Qué ofrecemos?</h3>      
+              <p style="font-family: sans-serif;">Proveemos un conjunto de servicios listos para usar. Stamping.io le permite desplegar contratos pre programados, que le permiten tokenizar y verificar sus activos digitales en tan solo unos minutos.</p>
+              </div>
+              <!--p>Si se desea puede registrarse la notificación o la acción de ejecutar el clic en una autoridad de sellado de tiempo (TSA - con valor legal), con la finalidad de dar fé que se ha realizado un determinado evento en un momento determinado.</p-->
+            </div>
+        </div>
+        </div>
+        
+        <div style="    margin-top: 358px;">
+            <div>
+              <h3 style="margin-left: 3%;margin-bottom: 50px;">Caso 2: Emitir credenciales verificables</h3>
+              <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="wrap-item text-center">
+                  <div class="item-img">
+                    <i class="fa fa-file-code-o" style="font-size: 60px;color: #6287a2;"></i>
+                  </div>
+                  
+                  <h3 class="pad-bt15" style="font-size: 17px;line-height: 1.36365;margin-bottom: 8px;word-wrap: break-word;color: #6287a2;font-weight: 400;">¿Qué emitimos?</h3>
+                  <div style="text-align: center;font-size: 15px;line-height: 1.46668;">
+                    <p style="font-family: sans-serif;">Se generan y firman credenciales verificables interoperables alineados con el estandar de la W3C.  Nuestras credenciales permite definir (sin limitaciones) una lista de atributos que usted desee afirmar.</p>
+                  </div>
+                  
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="wrap-item text-center">
+                  <div class="item-img">
+                    <!--img src="img/mensaje3.jpg" style="width:175px; height:auto;"-->
+                    <i class="fa fa-history" style="font-size: 60px;color: #6287a2;"></i>
+                  </div>
+                  <h3 class="pad-bt15" style="font-size: 17px;line-height: 1.36365;margin-bottom: 8px;word-wrap: break-word;color: #6287a2;font-weight: 400;">¿Qué trazamos?</h3>
+                  <div style="text-align: center;font-size: 15px;line-height: 1.46668;">
+                    <p style="font-family: sans-serif;">Se traza todos los cambios de estado y/o atributos de las credenciales, permitiendo crear una cadena de alertas a los emisores que hayan generado una nueva credencial basada en otra.</p>
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="wrap-item text-center">
+                  <div class="item-img">
+                    <!--img src="img/mensaje5.png" style="width:auto; height:160px;"-->
+                    <i class="fa fa-certificate" style="font-size: 60px;color: #6287a2;"></i>
+                  </div>
+                  <h3 class="pad-bt15" style="font-size: 17px;line-height: 1.36365;margin-bottom: 8px;word-wrap: break-word;color: #6287a2;font-weight: 400;">¿Qué verificamos?</h3>
+                  <div style="text-align: center;font-size: 15px;line-height: 1.46668;">
+                    <p style="font-family: sans-serif;">Se verifica que la credencial haya sido realmente firmada por el emisor y haciendo uso de la blockchain se puede validar el estado de la credencial sin necesidad de realizar consultas al emisor.</p>
+                    
+                   </div>
+                </div> 
+              </div>
+              <div class="col-md-3 col-sm-6 col-xs-12" style="background: #f3f2f2;padding: 20px;">
+                <div class="wrap-item text-center">
+    
+                  <h3 class="pad-bt15" style="font-size: 17px;line-height: 1.36365;margin-bottom: 8px;word-wrap: break-word;color: #6287a2;font-weight: 400;"></h3>
+                  <div style="text-align: center;font-size: 15px;line-height: 1.46668;">
+                  <h3 class="pad-bt15" style="font-size: 17px;line-height: 1.36365;margin-bottom: 8px;word-wrap: break-word;color: #6287a2;font-weight: 400;">¿Qué ofrecemos?</h3>  
+                  <p style="font-family: sans-serif;">Proveemos un conjunto de servicios que permite emitir las credenciales verificables, otorgar identidad digital a los titulares o sujetos, firmar las credenciales y realizar las pruebas de estado en la blockchain  basada en estándares (EIP1812, EIP712, etc.).</p>
+                  </div>
+                  <!--p>Si se desea puede registrarse la notificación o la acción de ejecutar el clic en una autoridad de sellado de tiempo (TSA - con valor legal), con la finalidad de dar fé que se ha realizado un determinado evento en un momento determinado.</p-->
+                </div>
+            </div>
+            </div>
+        </div>
+        
+        <div style="    margin-top: 378px;">
+          <h3 style="margin-left: 3%;margin-bottom: 50px;">Caso 3: Notariado digital (Sello de tiempo)</h3>
+          
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="wrap-item text-center">
+              <div class="item-img">
+                <i class="fa fa-file-text-o " style="font-size: 60px;color: #6287a2;"></i>
+              </div>
+              
+              <h3 class="pad-bt15" style="font-size: 17px;line-height: 1.36365;margin-bottom: 8px;word-wrap: break-word;color: #6287a2;font-weight: 400;">¿Qué registramos?</h3>
+              <div style="text-align: center;font-size: 15px;line-height: 1.46668;">
+                <p style="font-family: sans-serif;">A partir de un documento se calcula una huella digital que será registrada en la blockchain como una evidencia electrónica (Hash del tipo SHA256 o SHA356).</p>
+              </div>
+              
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="wrap-item text-center">
+              <div class="item-img">
+                <!--img src="img/mensaje3.jpg" style="width:175px; height:auto;"-->
+                <i class="fa fa-history" style="font-size: 60px;color: #6287a2;"></i>
+              </div>
+              <h3 class="pad-bt15" style="font-size: 17px;line-height: 1.36365;margin-bottom: 8px;word-wrap: break-word;color: #6287a2;font-weight: 400;">¿Qué trazamos?</h3>
+              <div style="text-align: center;font-size: 15px;line-height: 1.46668;">
+                <p style="font-family: sans-serif;">La huella digital (hash)  puede ser referenciada a otras huellas digitales, así como asociarle datos y/o atributos.</p>
+                
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="wrap-item text-center">
+              <div class="item-img">
+                <!--img src="img/mensaje5.png" style="width:auto; height:160px;"-->
+                <i class="fa fa-certificate" style="font-size: 60px;color: #6287a2;"></i>
+              </div>
+              <h3 class="pad-bt15" style="font-size: 17px;line-height: 1.36365;margin-bottom: 8px;word-wrap: break-word;color: #6287a2;font-weight: 400;">¿Qué verificamos?</h3>
+              <div style="text-align: center;font-size: 15px;line-height: 1.46668;">
+                <p style="font-family: sans-serif;">Se asocia al documento un código QR que a través de un visor se puede demostrar que el documento no ha sido adulterado desde su emisión.</p>
+                
+               </div>
+            </div> 
+          </div>
+          <div class="col-md-3 col-sm-6 col-xs-12" style="background: #f3f2f2;padding: 20px;">
+            <div class="wrap-item text-center">
+
+              <h3 class="pad-bt15" style="font-size: 17px;line-height: 1.36365;margin-bottom: 8px;word-wrap: break-word;color: #6287a2;font-weight: 400;"></h3>
+              <div style="text-align: center;font-size: 15px;line-height: 1.46668;">
+                  <h3 class="pad-bt15" style="font-size: 17px;line-height: 1.36365;margin-bottom: 8px;word-wrap: break-word;color: #6287a2;font-weight: 400;">¿Qué ofrecemos?</h3> 
+              <p style="font-family: sans-serif;">Una lista de servicios que pueden ser usados en la nube o desde sus propios servidores que facilitan el proceso de registro y verificación.</p>
+              </div>
+              <!--p>Si se desea puede registrarse la notificación o la acción de ejecutar el clic en una autoridad de sellado de tiempo (TSA - con valor legal), con la finalidad de dar fé que se ha realizado un determinado evento en un momento determinado.</p-->
+            </div>
+        </div>
+        </div>
+        
+        </div>
+
+       </div>
+    </section>   
+    
+    <section id="contact" class="section-padding wow fadeInUp delay-05s" style="    background: #4c5557;color: white;">
+        
+      <div class="container">
+        <div class="row" style="margin-top: 50px;">
+          <div class="col-md-12 text-center ">
+            <img src="img/logo.png" style="width: 300px;cursor: pointer;">
+            <!--p class="sub-title pad-bt15">Registro de evidencias digitales</p-->
+            <br><br><br>
+          </div>
+          
+          
+                <div style1="display:none;">
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="wrap-item text-center">
+              <h3 style="font-size: 17px;line-height: 1.36365;margin-bottom: 8px;word-wrap: break-word;color: #fdfdfd;;font-weight: 600;padding-left: 38px;text-align: left;">PRUEBAS</h3>
+              <div style="text-align: left;font-size: 15px;line-height: 1.46668;">
+                <ul>
+                    <li ><a href="https://www.stamping.io/docs/blockchain_prueba_existencia.html" style="text-decoration: dashed;color: white;font-size: 12px;" target="_blank">PRUEBA DE EXISTENCIA</a></li>
+                    <li ><a href="https://www.stamping.io/docs/blockchain_prueba_propiedad.html" style="text-decoration: dashed;color: white;font-size: 12px;" target="_blank">PRUEBA DE INTEGRIDAD</a></li>
+                    <li ><a href="https://www.stamping.io/docs/Blockchain_registro_propiedad_posesion.html" style="text-decoration: dashed;color: white;font-size: 12px;" target="_blank">PRUEBA DE PROPIEDAD</a></li>
+                    <li ><a href="https://www.stamping.io/docs/blockchain_intercambio_electronico_datos.html" style="text-decoration: dashed;color: white;font-size: 12px;" target="_blank">PRUEBA DE TRANSMISION</a></li>
+                    <li ><a href="https://www.stamping.io/docs/evitar_falsificacion_adulteracion_documentos_legales.html" style="text-decoration: dashed;color: white;font-size: 12px;" target="_blank">PRUEBA DE AUTENTICIDAD</a></li>
+                    
+                </ul>    
+              </div>
+              
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="wrap-item text-center">
+              <h3 style="font-size: 17px;line-height: 1.36365;margin-bottom: 8px;word-wrap: break-word;color: #fdfdfd;;font-weight: 600;padding-left: 38px;text-align: left;">BENEFICIOS</h3>
+              <div style="text-align: left;font-size: 15px;line-height: 1.46668;">
+                <ul>
+                    <li ><a href="https://www.stamping.io/docs/blockchain_confidencialidad_datos.html" target="_blank" style="text-decoration: dashed;color: white;font-size: 12px;">CONFIDENCIALIDAD</a></li>
+                    <li ><a href="https://www.stamping.io/docs/blockchain_seguridad_datos.html" target="_blank" style="text-decoration: dashed;color: white;font-size: 12px;">SEGURIDAD</a></li>
+                    <li ><a href="https://www.stamping.io/docs/blockchain_transparencia.html" target="_blank" style="text-decoration: dashed;color: white;font-size: 12px;">TRANSPARENTE</a></li>
+                    <li ><a href="https://www.mpfn.gob.pe/Docs/0/files/manual_evidencia_digital.pdf" target='_blank' style="text-decoration: dashed;color: white;font-size: 12px;">VALOR PROBATORIO</a></li>
+                    <li ><a href="https://web.ua.es/en/recsi2014/documentos/papers/cadena-de-custodia-en-el-analisis-forense-implementacion-de-un-marco-de-gestion-de-la-evidencia-digital.pdf" target='_blank'  style="text-decoration: dashed;color: white;font-size: 12px;"  >AUDITABLE</a></li>
+                </ul>    
+              </div>
+              
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="wrap-item text-center">
+              <h3 style="font-size: 17px;line-height: 1.36365;margin-bottom: 8px;word-wrap: break-word;color: #fdfdfd;;font-weight: 600;padding-left: 38px;text-align: left;">INTEGRACION</h3>
+              <div style="text-align: left;font-size: 15px;line-height: 1.46668;">
+                <ul>
+                    <li ><a href="https://doc.stamping.io/v1/" style="text-decoration: dashed;color: white;font-size: 12px;" target="_blank">API RESTful</a></li>
+                    <li ><a href="https://gitlab.com/stamping/stamping.io" style="text-decoration: dashed;color: white;font-size: 12px;" target="_blank">SDK - PHP</a></li>
+                    <li ><a href="https://stamping.io/docs/RFC_3227.html" style="text-decoration: dashed;color: white;font-size: 12px;" target="_blank">RFC 3227</a></li>
+                    <li ><a href="https://www.stamping.io/docs/blockchain_tokenizar_colegio_medico.html" style="text-decoration: dashed;color: white;font-size: 12px;" target="_blank">TOKENIZAR MÉDICOS</a></li>            
+                    
+                    
+                </ul>    
+              </div>
+              
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="wrap-item text-center">
+              <h3 style="font-size: 17px;line-height: 1.36365;margin-bottom: 8px;word-wrap: break-word;color: #fdfdfd;;font-weight: 600;padding-left: 38px;text-align: left;">COMPA&Ntilde;IA</h3>
+              <div style="text-align: left;font-size: 15px;line-height: 1.46668;">
+                <ul>
+                    <li ><a href="https://stamping.io/docs/stamping_historia.html" style="text-decoration: dashed;color: white;font-size: 12px;" target="_blank">ACERCA DE NOSOTROS</a></li>
+                    <li ><a href="https://stamping.io/docs/stamping_inversores.html" style="text-decoration: dashed;color: white;font-size: 12px;" target="_blank">INVERSORES</a></li>
+                    <li ><a href="https://stamping.io/docs/stamping_contactos.html" style="text-decoration: dashed;color: white;font-size: 12px;" target="_blank">CONTACTOS</a></li>
+                    <li ><a href="https://www.stamping.io/login/term-es.html" style="text-decoration: dashed;color: white;font-size: 12px;" target="_blank">TERMINOS DE USO</a></li>
+                    <li ></li>
+
+                    
+
+                </ul>    
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <br>
+       
+        </div>
+      </div>
+    </section>
+    <!---->
+    <!---->
+    <footer id="footer">
+      <div class="container">
+        <div class="row text-center">
+          <p>&copy; Stamping.io All Rights Reserved.</p>
+          <div class="credits">
+           
+            Dise&ntilde;ado por <a href="https://www.stamping.io/">Stamping.io</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!---->
+  </div>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery.easing.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/wow.js"></script>
+  <script src="js/jquery.bxslider.min.js"></script>
+  <script src="js/custom.js"></script>
+
+</body>
+</html>{S�j      aH�$aH�$Co}�aK'7   <    O^partitionKey=%28http%2Cstamping.io%29,:http://stamping.io/ necko:classified 1 strongly-framed 1 request-method GET response-head HTTP/1.1 200 OK
+Date: Mon, 20 Sep 2021 13:46:17 GMT
+Server: Apache
+Last-Modified: Tue, 31 Aug 2021 22:37:05 GMT
+Accept-Ranges: bytes
+Content-Length: 72094
+Content-Type: text/html
+ original-response-headers Date: Mon, 20 Sep 2021 13:46:17 GMT
+Server: Apache
+Upgrade: h2,h2c
+Connection: Upgrade, Keep-Alive
+Last-Modified: Tue, 31 Aug 2021 22:37:05 GMT
+Accept-Ranges: bytes
+Content-Length: 72094
+Keep-Alive: timeout=5, max=100
+Content-Type: text/html
+ ctid 1 uncompressed-len 0 net-response-time-onstart 834 net-response-time-onstop 1147  �

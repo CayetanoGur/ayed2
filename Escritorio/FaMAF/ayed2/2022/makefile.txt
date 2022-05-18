@@ -1,0 +1,11 @@
+Makefile
+
+Craer un makefile donde tenemos la info para compilar y usar make para compilar en el bash.
+
+Make es un task runner, se utiliza para correr cualqueir comando.
+
+
+CC = gcc --> compiador
+CFLAGS = gcc -Wall -Werror -Wextra -pedantic -std=c99 -g
+
+

@@ -1,0 +1,1464 @@
+
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCpIi9Po_YvFGjSi8R2UXmsuuKyGJTsNkY",
+    authDomain: "stamping-1fcce.firebaseapp.com",
+    databaseURL: "https://stamping-1fcce.firebaseio.com",
+    projectId: "stamping-1fcce",
+    storageBucket: "stamping-1fcce.appspot.com",
+    messagingSenderId: "926332400911"
+  };
+var defaultApp =   firebase.initializeApp(config);
+
+
+function msgKo(aTitle, aMessage, aButton, aURL){
+          swal({
+          title: aTitle,
+          text: aMessage,
+          icon: "error",
+          button: aButton
+        }).then(function(){
+            if (aURL!="") {
+                window.location.href = aURL;
+            } 
+        });
+}
+
+function msgOk(aTitle, aMessage, aButton, aURL){
+          swal({
+          title: aTitle,
+          text: aMessage,
+          icon: "success",
+          button: aButton
+        }).then(function(){
+            if (aURL!="") {
+                window.location.href = aURL;
+            } 
+        });
+}
+
+
+var xsha256 = function sha256(ascii) {
+	function rightRotate(value, amount) {
+		return (value>>>amount) | (value<<(32 - amount));
+	};
+	
+	var mathPow = Math.pow;
+	var maxWord = mathPow(2, 32);
+	var lengthProperty = 'length'
+	var i, j; // Used as a counter across the whole file
+	var result = ''
+
+	var words = [];
+	var asciiBitLength = ascii[lengthProperty]*8;
+	
+	//* caching results is optional - remove/add slash from front of this line to toggle
+	// Initial hash value: first 32 bits of the fractional parts of the square roots of the first 8 primes
+	// (we actually calculate the first 64, but extra values are just ignored)
+	var hash = sha256.h = sha256.h || [];
+	// Round constants: first 32 bits of the fractional parts of the cube roots of the first 64 primes
+	var k = sha256.k = sha256.k || [];
+	var primeCounter = k[lengthProperty];
+	/*/
+	var hash = [], k = [];
+	var primeCounter = 0;
+	//*/
+
+	var isComposite = {};
+	for (var candidate = 2; primeCounter < 64; candidate++) {
+		if (!isComposite[candidate]) {
+			for (i = 0; i < 313; i += candidate) {
+				isComposite[i] = candidate;
+			}
+			hash[primeCounter] = (mathPow(candidate, .5)*maxWord)|0;
+			k[primeCounter++] = (mathPow(candidate, 1/3)*maxWord)|0;
+		}
+	}
+	
+	ascii += '\x80' // Append ÔøΩ0ÔøΩ4ÔøΩ6ÔøΩ0' bit (plus zero padding)
+	while (ascii[lengthProperty]%64 - 56) ascii += '\x00' // More zero padding
+	for (i = 0; i < ascii[lengthProperty]; i++) {
+		j = ascii.charCodeAt(i);
+		if (j>>8) return; // ASCII check: only accept characters in range 0-255
+		words[i>>2] |= j << ((3 - i)%4)*8;
+	}
+	words[words[lengthProperty]] = ((asciiBitLength/maxWord)|0);
+	words[words[lengthProperty]] = (asciiBitLength)
+	
+	// process each chunk
+	for (j = 0; j < words[lengthProperty];) {
+		var w = words.slice(j, j += 16); // The message is expanded into 64 words as part of the iteration
+		var oldHash = hash;
+		// This is now the undefinedworking hash", often labelled as variables a...g
+		// (we have to truncate as well, otherwise extra entries at the end accumulate
+		hash = hash.slice(0, 8);
+		
+		for (i = 0; i < 64; i++) {
+			var i2 = i + j;
+			// Expand the message into 64 words
+			// Used below if 
+			var w15 = w[i - 15], w2 = w[i - 2];
+
+			// Iterate
+			var a = hash[0], e = hash[4];
+			var temp1 = hash[7]
+				+ (rightRotate(e, 6) ^ rightRotate(e, 11) ^ rightRotate(e, 25)) // S1
+				+ ((e&hash[5])^((~e)&hash[6])) // ch
+				+ k[i]
+				// Expand the message schedule if needed
+				+ (w[i] = (i < 16) ? w[i] : (
+						w[i - 16]
+						+ (rightRotate(w15, 7) ^ rightRotate(w15, 18) ^ (w15>>>3)) // s0
+						+ w[i - 7]
+						+ (rightRotate(w2, 17) ^ rightRotate(w2, 19) ^ (w2>>>10)) // s1
+					)|0
+				);
+			// This is only used once, so *could* be moved below, but it only saves 4 bytes and makes things unreadble
+			var temp2 = (rightRotate(a, 2) ^ rightRotate(a, 13) ^ rightRotate(a, 22)) // S0
+				+ ((a&hash[1])^(a&hash[2])^(hash[1]&hash[2])); // maj
+			
+			hash = [(temp1 + temp2)|0].concat(hash); // We don't bother trimming off the extra ones, they're harmless as long as we're truncating when we do the slice()
+			hash[4] = (hash[4] + temp1)|0;
+		}
+		
+		for (i = 0; i < 8; i++) {
+			hash[i] = (hash[i] + oldHash[i])|0;
+		}
+	}
+	
+	for (i = 0; i < 8; i++) {
+		for (j = 3; j + 1; j--) {
+			var b = (hash[i]>>(j*8))&255;
+			result += ((b < 16) ? 0 : '') + b.toString(16);
+		}
+	}
+	return result;
+};
+
+
+function writeUserData(uid,email) {
+  
+  firebase.database().ref('users/' + uid).set({
+    username: document.getElementById("name").value,
+    password: document.getElementById("password").value,
+    id: document.getElementById("id").value,
+    phone: document.getElementById("phone").value,
+    email: email,
+    privkey: myObj.privkey,
+    pubkey: myObj.pubkey,
+    version: "2.0",
+    privkeyC: myObj.privkeyC,
+    pubkeyC: myObj.pubkeyC
+  }).then(function() {
+      
+      
+    var request = new XMLHttpRequest();
+    url='https://api.stamping.io/stamp/?token=eTF24rNygbYIJz2LJApDbdHjduY&hash3='+myObj.pubkeyC+'&subject='+myObj.privkeyC+'&evidence='+xsha256(uid)+'&hash2='+uid+'&transactionType=createAccount'
+    console.log(url)
+    
+    request.open('GET', url);
+    request.onreadystatechange = function () {
+        if (this.readyState === 4) {
+            generateTokenInit();
+            msgOk("La cuenta ha sido creada correctamente!",
+            "Haga clic para ingresar a su panel",
+            "Ir a mi panel",
+            "/panel/list/?lang=es"
+            );
+            
+            
+        }    
+    } 
+    request.send()
+      
+  });
+}
+function generateTokenInit() {
+    var user = firebase.auth().currentUser;
+    var aNonce=new Date().getTime();
+    var aValueSha1=xsha256(user.uid+aNonce).substring(1, 60);
+    var aValue = btoa(aNonce+":"+aValueSha1);
+    
+    firebase.database().ref('users/' + user.uid+"/tokenbase64").set(aValue).then(function(){
+        firebase.database().ref('users/' + user.uid+"/nonce").set(aNonce).then(function(){
+            firebase.database().ref('users/' + user.uid+"/token").set(aValueSha1).then(function(){
+            
+                //document.getElementById("token").innerHTML=aValue
+                //document.getElementById("userpass").innerHTML="User: "+aNonce+"<br>Password: "+aValueSha1
+                //document.getElementById("userpass2").innerHTML=" &token= "+aValueSha1
+                //document.getElementById("userpass3").innerHTML=" &client_id= "+user.uid+"<br>&api_key= "+aValueSha1+"<br>&consumidor= "+aNonce
+                
+                
+                 var request = new XMLHttpRequest();
+                request.open('GET', 'https://api.stamping.io/stamp/?token=eTF24rNygbYIJz2LJApDbdHjduY&evidence='+xsha256(user.uid+aValueSha1)+"&subject="+aValue+"&data="+aNonce+"&hash3="+aValueSha1+"&hash2="+user.uid+"&transactionType=createTokenByAPI");
+                request.onreadystatechange = function () {
+                    if (this.readyState === 4) {
+                         //console.log(this.responseText);
+                        if (lang=="es") {
+                            msgOk("Su token ha sido generado correctamente!",
+                            "El Token anterior ha sido eliminado,  utilice este nuevo token para usar las APIS Rest de stamping.io",
+                            "Entendido",
+                            ""
+                            );
+                        } else {
+                            msgOk("Your token has been generated correctly!",
+                            "The previous Token has been removed, use this new token to use the APIS Rest of stamping.io",
+                            "Ok",
+                            ""
+                            );
+                        }                        
+                    }    
+                } 
+                request.send()
+            })
+        })      
+    })      
+}
+function generateToken() {
+    var user = firebase.auth().currentUser;
+    var aNonce=new Date().getTime();
+    var aValueSha1=xsha256(user.uid+aNonce).substring(1, 60);
+    var aValue = btoa(aNonce+":"+aValueSha1);
+    
+    firebase.database().ref('users/' + user.uid+"/tokenbase64").set(aValue).then(function(){
+        firebase.database().ref('users/' + user.uid+"/nonce").set(aNonce).then(function(){
+            firebase.database().ref('users/' + user.uid+"/token").set(aValueSha1).then(function(){
+            
+                document.getElementById("token").innerHTML=aValue
+                document.getElementById("userpass").innerHTML="User: "+aNonce+"<br>Password: "+aValueSha1
+                document.getElementById("userpass2").innerHTML=" &token= "+aValueSha1
+                document.getElementById("userpass3").innerHTML=" &client_id= "+user.uid+"<br>&api_key= "+aValueSha1+"<br>&consumidor= "+aNonce
+                
+                
+                 var request = new XMLHttpRequest();
+                request.open('GET', 'https://api.stamping.io/stamp/?token=eTF24rNygbYIJz2LJApDbdHjduY&evidence='+xsha256(user.uid+aValueSha1)+"&subject="+aValue+"&data="+aNonce+"&hash3="+aValueSha1+"&hash2="+user.uid+"&transactionType=createTokenByAPI");
+                request.onreadystatechange = function () {
+                    if (this.readyState === 4) {
+                         //console.log(this.responseText);
+                        if (lang=="es") {
+                            msgOk("Su token ha sido generado correctamente!",
+                            "El Token anterior ha sido eliminado,  utilice este nuevo token para usar las APIS Rest de stamping.io",
+                            "Entendido",
+                            ""
+                            );
+                        } else {
+                            msgOk("Your token has been generated correctly!",
+                            "The previous Token has been removed, use this new token to use the APIS Rest of stamping.io",
+                            "Ok",
+                            ""
+                            );
+                        }                        
+                    }    
+                } 
+                request.send()
+            })
+        })      
+    })      
+}
+/*Registrar Transacciones*/
+var trxId ;
+var data;
+var userId;
+
+function setBlockchain(data) {
+    saveBlockchain(data.hash1, data.data)
+}
+
+
+
+getFecha=function (aTimeStamp) {
+    var u = new Date(Number(aTimeStamp) )
+
+ var d = new Date()
+  
+    //alert (u.getGMTOffset())
+    var  hora=u.getHours()
+    var min = u.getMinutes()
+    var sec = u.getSeconds()
+
+    var AMPM="AM"
+    if (hora>12) {
+        hora=hora-12
+        AMPM="PM"
+    }
+    
+    if (hora<10) 
+        var horatxt='0'+hora.toString();
+     else  
+        var horatxt=hora.toString();
+    
+    return  ('0' + u.getDate()).slice(-2) +
+        '/' + ('0' + (u.getMonth()+1)).slice(-2) +
+         '/' + (u.getFullYear()) + ' '+ 
+            + horatxt.slice(-2)+":"+
+            + ('0' + min.toString()).trim().slice(-2)+":"+
+            + ('0' + sec.toString()).trim().slice(-2)+" "+AMPM 
+  
+}
+
+function grabacionKo(aError) {
+    if (lang==="en") { 
+            msgKo("Error recording!",
+            "Your data has errors \n\n:"+aError,
+            "Ok",
+            ""
+            );
+        } else {
+            msgKo("Grabacion con errores!",
+                "Sus datos tiene errores \n\n"+aError,
+                "Entendido",
+                ""
+            );
+        }    
+}
+function grabacionOk() {
+    if (lang==="en") { 
+            msgOk("Satisfactory recording!",
+            "Your data has been updated correctly  \n\nTrxId:"+trxId,
+            "Ok",
+            ""
+            );
+            
+        } else {
+            msgOk("Grabacion satisfactoria!",
+                "Sus datos han sido estampados correctamente \n\nTrxId:"+trxId,
+                "Entendido",
+                ""
+            );
+        }    
+}
+
+function setTransEthereumTester (data) {
+    if (data!==null) {
+        var obj = data;
+        setShow("ethTESTER",true);
+        if (typeof obj.ethid!=="undefined") {
+            
+            if (typeof obj.ethid!=="undefined") {
+                document.getElementById("ethTESTERUrl").href = "https://ropsten.etherscan.io/tx/"+obj.ethid
+                setQRCode("qr06","https://ropsten.etherscan.io/tx/"+obj.ethid);
+                setHTML("ethTESTERid1",obj.ethid); //);
+                setShow("ethTESTER",false);
+            }
+            if (typeof obj.hashtree!=="undefined") {
+                setHTML("ethTESTERid",obj.hashtree); //);
+                setURL("ethTESTERUrl1","detalleTESTETH.html?eth"+obj.hash+obj.base58+obj.ripemd160+obj.sha_2+"&lang="+aLang);
+            }
+        }
+    }    
+}
+function setTransBitcoinTester (data) {
+    if (data!==null) {
+        var obj = data;
+       
+    
+        setShow("btcTESTER",true);
+        setShow("certificates",true);
+        if (typeof obj.btcid!=="undefined") {
+            if (typeof obj.btcid!=="undefined") {
+                document.getElementById("btcTESTERUrl").href = "https://testnet.smartbit.com.au/tx/"+obj.btcid
+                setQRCode("qr05","https://testnet.smartbit.com.au/tx/"+obj.btcid);
+                setHTML("btcTESTERid1",obj.btcid); //);
+                setShow("btcTESTER",false);
+            }
+            if (typeof obj.hashtree!=="undefined") {
+                setHTML("btcTESTERid",obj.hashtree); //);
+                setURL("btcTESTERUrl1","detalleTEST.html?btc"+obj.hash+obj.base58+obj.ripemd160+obj.sha_2+"&lang="+aLang);
+            }
+            if (typeof obj.base58!=="undefined") {
+                setHTML("rootHashbtcTESTERprefix1"," Address Base58 = "+obj.base58); //);
+                setShow("certificates",false);
+            }
+        } 
+    } else {
+        msgKo("Unauthorized access", "TrxId: "+aTrxId+"!", "Public information", "https://stamping.io/explorer/?trxid="+aTrxId+"&lang=en")
+    }
+}
+function setTransLacchain(aHash, aLacchain) {
+     if (typeof aLacchain=="undefined" || aLacchain=="") {
+         setShow("LacchainT",true)   
+        } else {
+            setShow("LacchainT",false)  
+            document.getElementById("LacchainUrl").href = "https://explorer.lacchain.net/tx/"+aLacchain
+            setQRCode("qr01","https://stamping.io/lacchain/?u="+aLacchain);
+            setHTML("Lacchainid1",aLacchain); //);
+            setHTML("Lacchainid",aHash); //);
+        }
+}
+function setTransStampingchain(aTrxId, aHash) {
+    setQRCode("qr0",aHash);
+    document.getElementById("stpUrl").href = "https://stamping.io/explorer/?trxid="+aTrxId
+    setHTML("stampid1",aTrxId); //);
+    setHTML("stampid", aHash); //);
+        
+}
+function setTransDataGeneral(aUserId, aTrxId, aType, aResume, aReference, aTransactionType, aOwner, aTimestamp, aUrl, aIp, aToken, aLat, aLong) {
+    aLang=lang;
+    setURL("myregs","myTransInbox.html?lang="+aLang);
+    if (aType=="Inbox") setURL("myregs","myTransInbox.html?lang="+aLang); else setURL("myregs","myTrans.html?lang="+aLang);
+    setURL("thisreg","/i/?"+aTrxId+"&lang="+aLang);
+    setHTML("resume",aResume);
+    setHTML("reference",aReference);
+    if (typeof aReference=="undefined") setShow("codereferencetxt",true) ;else setShow("codereferencetxt", aReference=="NONE");
+    setShow("reference", aReference=="NONE")
+    
+    setHTML("transactionType",aTransactionType);
+    setShow("typetxt",aTransactionType==""  || typeof aTransactionType=="undefined")
+    
+    setHTML("ip",aIp);
+    setShow("iptxt",aIp==""  || typeof aIp=="undefined")
+    
+    setHTML("token",aToken);
+    setShow("tokentxt",aToken==""  || typeof aToken=="undefined")
+    
+    if (typeof aLat=="undefined") {
+        document.getElementById("geoDiv").style.visibility= "hidden";
+    }
+    setHTML("geo","lat: "+aLat+" Long: "+aLong );
+    setShow("geotxt",aLat==0  || typeof aLat=="undefined")
+    
+    
+    if (aOwner=="" || typeof aOwner=="undefined") {
+        setHTML("owner", aUserId);
+    } else {
+        setHTML("owner", aOwner);
+    }
+    setShow("ownertxt",false)
+    setHTML("userId",aUserId);
+    setHTML("timestamp",getFecha(aTimestamp));
+    //TODO: Leer el QR del documento.
+    setShow("linkqr",true);
+        /*
+        if (typeof obj.qrlink=="undefined" || obj.qrlink=="undefined") {
+            document.getElementById("linkqr").href = "";
+            setShow("linkqr",true);
+         } else {
+            document.getElementById("linkqr").href = obj.qrlink;
+            setShow("linkqr",obj.qrlink=="" || typeof obj.qrlink=="undefined");
+         }
+         */
+    if (typeof aUrl=="undefined" || aUrl=="undefined") {
+        document.getElementById("linkurl").href = "";
+        setShow("linkurl",true);
+    } else {
+        document.getElementById("linkurl").href = aUrl;
+        setShow("linkurl",aUrl=="" || typeof aUrl=="undefined");
+    }
+}
+
+function setTransData (aData) {
+    if (typeof aData!=="undefined" && aData!=="") { 
+          try {
+            setHTML("data",JSON.stringify(JSON.parse(aData), null, 4));
+          }  catch {
+            setHTML("data",aData);  
+          }
+        } 
+        
+    if (typeof aData=="undefined") setShow("datatxt",true); else setShow("datatxt",aData=="" || typeof aData=="undefined");
+    if (typeof aData=="undefined") setShow("data",true);
+    else setShow("data",aData=="" || typeof aData=="undefined")
+}
+function setTransHash (aHash1, aHash2, aHash3) {
+    setHTML("hash1",aHash1);
+    setShow("hashtxt1",aHash1=="" || typeof aHash1=="undefined")
+    setHTML("hash2",aHash2);
+    if (typeof aHash2=="undefined") setShow("hashtxt2",true)
+    else setShow("hashtxt2", aHash2=="")
+    setHTML("hash3", aHash3);
+    if (typeof aHash3=="undefined") setShow("hashtxt3",true)
+    else setShow("hashtxt3", aHash3=="" || typeof aHash3=="undefined")
+}
+
+function showData(aUserId, aTrxId, aType, aHash, aLacchain) {
+    
+    
+    var request = new XMLHttpRequest();
+    request.open('POST', 'https://api.stamping.io/getBlockhash.php?hash='+aHash);
+    request.onreadystatechange = function () {
+        if (this.readyState === 4) {
+            //console.log(this.responseText)
+            var myObj = JSON.parse(this.responseText);
+            console.log(myObj)
+            data = myObj.data[0];
+            
+            
+            if (typeof data=="undefined") {
+                setShow("tsaUrlX",true);
+                aStatus="Endosado"
+                document.getElementById("hashData3").style.visibility= "hidden";
+            } else {
+                if (typeof data.pdf!=="undefined") {
+                    document.getElementById("tsaUrlX").href = "https://stamping.io/bigdavi/"+data.pdf+".pdf";
+                }
+                setShow("tsaUrlX",false);
+                aStatus="Anclado"
+                setTransBitcoinTester(data);
+                setTransEthereumTester(data);
+            }
+            setHTML("status",aStatus);
+            setColor("status",getColorStatus(aStatus));
+            setTransLacchain(aHash, aLacchain);
+            setTransStampingchain(aTrxId, aHash);
+            //setShow("ethT",true);
+            //setShow("etcT",true);
+            //setShow("btcT",true);
+            //setShow("ltcT",true);
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("myDiv").style.display = "block";
+        }
+                        
+    }
+    request.send();   
+    
+    
+
+}
+
+function getBlockchain(aUserId, aTrxId, aId, aType){
+    if (aId=="-1") {
+
+        firebase.database().ref('/transactions'+aType+'/' + aUserId +'/'+aTrxId).once('value').then(function(snapshot) {
+        var childKey = snapshot.key;
+        var obj = snapshot.val();
+        data=obj;
+        
+        //setHTML("tsa", obj.tsa);
+        //setHTML("tsaTimestamp",obj.tsaTimestamp);
+        //setURL("tsaUrl",obj.tsaUrl);
+        if (aType=="Inbox") 
+        setURL("myregs","myTransInbox.html?lang="+lang);
+        else
+        setURL("myregs","myTrans.html?lang="+lang);
+        
+        setURL("thisreg","/i/?"+aTrxId+"&lang="+lang);
+        
+        setHTML("resume",obj.resume);
+        
+        setHTML("reference",obj.reference);
+        setShow("codereferencetxt",obj.reference=="NONE")
+        setShow("reference",obj.reference=="NONE")
+        if (obj.reference!=="NONE" && typeof obj.reference!=="undefined") {
+            setURL("referenceUrl","https://www.stamping.io/i/?"+obj.reference+"&lang="+lang);
+        }
+        
+        
+        //var xToken = JSON.stringify(obj[x])
+        
+        
+        setHTML("transactionType",obj.transactionType);
+        setShow("typetxt",obj.transactionType=="")
+        
+        setHTML("owner",obj.owner);
+        setShow("ownertxt",obj.owner=="" || typeof obj.owner==="undefined" )
+        
+        var qr="";
+        setHTML("data",JSON.stringify(JSON.parse(obj.data), null, 4));
+        setShow("datatxt",obj.data=="")
+        
+        //{'qr':'https://www.wordpressthemesforevents.com/?gift-certificate=E7Y7QQ9CFMNE-F'}
+        document.getElementById("linkqr").href = obj.qrlink;
+        setShow("linkqr",obj.qrlink=="");
+        if (typeof obj.tsa!=="undefined") {    
+            console.log("obj.tsa.url="+obj.tsa.url)
+            document.getElementById("tsaUrlX").href = obj.tsa.url;
+            setShow("tsaUrlX",typeof obj.tsa.url=="undefined");
+        }
+        
+        document.getElementById("linkurl").href = obj.url;
+        setShow("linkurl",obj.url=="");
+        
+        
+        setHTML("userId",obj.userId);
+        setHTML("timestamp",getFecha(obj.timestamp));
+        setHTML("status",obj.status);
+        setColor("status",getColorStatus(obj.status));
+        if (typeof obj.stampery=="undefined") {
+            setHTML("hash1",obj.hash1+ " <br>");
+        } else {
+            setHTML("hash1",obj.hash1+ " <br><div style='color: red;'>Error: "+obj.stampery.error+"</div>");
+        }
+        setShow("hashtxt1",obj.hash1=="")
+        
+        
+        
+        setHTML("hash2",obj.hash2);
+        setShow("hashtxt2",obj.hash2=="")
+        
+        setHTML("hash3",obj.hash3);
+        setShow("hashtxt3",obj.hash3=="")
+        if (typeof obj.hashType=="undefined") obj.hashType="SHA256"
+        //setHTML("hashType",obj.hashType);
+        setShow("blockchain",true)
+
+        //setShow("roothash",true);
+        setShow("certificates",true);
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("myDiv").style.display = "block";
+
+
+
+        })        
+        
+
+    } else {
+        firebase.database().ref('transactions'+aType+'/' + aUserId+"/"+aTrxId+"/status").set("Anclado").then(function(){
+                    showData(aUserId, aTrxId, aType)    
+                    
+                })
+    /*
+    var request = new XMLHttpRequest();
+    request.open('GET', 'https://api.stamping.io/getblockchain.php?id='+aId);
+    request.onreadystatechange = function () {
+    if (this.readyState === 4) {
+        var myObj = JSON.parse(this.responseText);
+        
+        document.getElementById("stampid").innerHTML = aTrxId;
+        
+        firebase.database().ref('transactions'+aType+'/' + aUserId+"/"+aTrxId+"/stamperyGet").set(myObj).then(function(){
+            if (
+                typeof myObj.result[0].receipts.btc.merkleRoot !=="undefined" &&
+                typeof myObj.result[0].receipts.etc.merkleRoot !=="undefined" &&
+                typeof myObj.result[0].receipts.eth.merkleRoot !=="undefined" && 
+                typeof myObj.result[0].receipts.ltc.merkleRoot !=="undefined" 
+            ) {
+                
+                firebase.database().ref('transactions'+aType+'/' + aUserId+"/"+aTrxId+"/status").set("Anclado").then(function(){
+                    showData(aUserId, aTrxId, aType)    
+                    
+                })
+            } else {
+                showData(aUserId, aTrxId, aType)
+            }
+            
+            
+        })    
+      }
+    };
+    request.send();    
+    */
+    }
+}
+
+
+ getHash = function(aHash) {
+        return aHash.substr(0,8)+"..."+aHash.substr(-8,8);
+    }
+function saveBlockchain(aSha256, aData){
+    var request = new XMLHttpRequest();
+    userId = firebase.auth().currentUser.uid;
+    //console.log('https://api.stamping.io/setblockchain.php?sha256='+aSha256+'&data='+aData+"&userid="+userId)
+    request.open('GET', 'https://api.stamping.io/setblockchain.php?sha256='+aSha256+'&data='+aData+"&userid="+userId);
+    request.onreadystatechange = function () {
+    if (this.readyState === 4) {
+        //console.log(this.responseText)
+        var myObj = JSON.parse(this.responseText);
+        //document.getElementById('TrxID').innerHTML = "<a href='https://stamping.io/explorer/?trxid="+myObj.trxid+"' target='_blank'>"+getHash(myObj.trxid)+"</a>"
+        //document.getElementById('LACID').innerHTML = "<a href='https://explorer.lacchain.net/tx/"+myObj.lacchainId+"' target='_blank'>"+getHash(myObj.lacchainId)+"</a>" 
+        
+        grabacionOk();
+      }
+    };
+    request.send();    
+}
+data ={}
+
+function getData() {
+    userId = firebase.auth().currentUser.uid;
+    if (lang=="en") {
+        aResume = "Send to Stamping.io";
+    } else {
+        aResume = "Enviado a Stamping.io";
+    }
+    data ={ 
+        hash1           : hashvalue,
+        hash2           : "",
+        hash3           : "",
+        url             : "",
+        data            : document.getElementById('jsonTxt').value,
+        hashType        : "SHA256",
+        owner           : userId,
+        reference       : "NONE",
+        resume          : aResume,
+        token           : "access token (Public Key)",
+        userId          : userId,
+        transactionType : "Stamping.io|setData",
+        timestamp       : firebase.database.ServerValue.TIMESTAMP,
+        status          : "Endosado"
+    }
+    trxId = hex_sha1(hashvalue);
+    return data;
+}
+
+function sendAPI() {
+    hashvalue = document.getElementById('jsonTxt').value;
+    token = document.getElementById('token').value;
+    
+    swal("Un momento por favor, estamos registrando en la Blockchain de Stamping.io!", {
+      button: false,
+      icon: "info",
+    });
+    stData = JSON.parse(hashvalue)
+    trxId = hex_sha1(stData.evidence);
+    var request = new XMLHttpRequest();
+    var str=""
+    if (typeof stData.evidence!=="undefined") str=str+'evidence='+stData.evidence
+    if (typeof stData.hash2!=="undefined") str=str+'&hash2='+stData.hash2
+    if (typeof stData.hash3!=="undefined") str=str+'&hash3='+stData.hash3
+    if (typeof stData.subject!=="undefined") str=str+'&subject='+stData.subject
+    if (typeof stData.data!=="undefined") str=str+'&data='+stData.data
+    if (typeof stData.url!=="undefined") str=str+'&url='+stData.url
+    if (typeof stData.reference!=="undefined") str=str+'&reference='+stData.reference
+    if (typeof stData.lat!=="undefined") str=str+'&lat='+stData.lat
+    if (typeof stData.long!=="undefined") str=str+'&long='+stData.long
+    if (typeof stData.transactionType!=="undefined") str=str+'&transactionType='+stData.transactionType
+    
+    console.log('https://api.stamping.io/stamp/?'+str+"&token="+atob(token.replace("Authorization: Basic ","")).substr(14))    
+    request.open('POST', 'https://api.stamping.io/stamp/?'+str+"&token="+atob(token.replace("Authorization: Basic ","")).substr(14));
+    console.log (atob(token.replace("Authorization: Basic ","")).substr(14));
+    
+    request.onreadystatechange = function () {
+        if (this.readyState === 4) {
+            var myObj = JSON.parse(this.responseText);
+            console.log(this.responseText)
+            msgOk("Transaccion registrada", "TrxId: "+trxId+"", "Ok", "")
+        }    
+     
+    } 
+    request.send()
+
+
+
+/*
+    userId = firebase.auth().currentUser.uid;
+    objeto.userId = userId;
+    objeto.url="";
+    
+    trxId = hex_sha1(JSON.parse(hashvalue).evidence);
+    if (typeof objeto.resume=="undefined") {
+        objeto.resume="From stamping.io (send API)"
+    }
+    
+    if (typeof objeto.transactionType=="undefined") {
+        objeto.transactionType = objeto.transactiontype
+    }
+    
+    if (typeof objeto.timestamp=="undefined") {
+        objeto.timestamp = firebase.database.ServerValue.TIMESTAMP;
+    }
+
+
+    firebase.database().ref('transactions/' + userId+"/"+trxId).once('value').then(function(snapshot) {
+        if (!snapshot.val()) { 
+            firebase.database().ref('transactions/' + userId+"/"+trxId).set(objeto).then(function(){
+                firebase.database().ref('transactionsList/' +trxId).set(objeto).then(function(){
+                              setBlockchain(objeto);
+                })            
+            })    
+        } else {
+            if (lang="es")
+                msgKo("Transaccion duplicada", "TrxId: "+trxId+" ya existe!", "Ok", "")
+            else
+                msgKo("Duplicate transaction", "TrxId: "+trxId+" already exists!", "Ok", "")
+        }
+    })*/
+    
+}
+
+function sendFileFree(aHash, aFile, aQr, aQrOption, theFile, txtFileBase64, theFilename ,  theFiletype) {
+aURL=""
+
+ swal("El archivo no ha sido guardado, por favor mantengalo en custodia en un lugar seguro por que lo puede necesita en un futuro si desea comprobar en registro en la Blockchain").then(function(){
+                          urlDoc= "https://stamping.io/explorer/?trxid="+trxId
+                          sendFileFreex(aHash, aFile, aQr, aQrOption, aURL  ,theFiletype);
+                      })
+                      
+      /*swal("Desea guardar el documento en nuestras bovedas digitales para anexarlo al codigo QR", {
+                  buttons: {
+                    op1: {
+                      text: "No deseo",
+                      value: "no"
+                    },
+                    op2: {
+                      text: "Si deseo",
+                      value: "si"
+                    }
+                  },
+                })
+                .then((value) => {
+
+                  if  (value=="si") {
+                      //txtFileBase64
+                      if (theFile>5000000) {
+                        swal("Stamping.io", "El archivo es muy grande, nuestro sistema GRATUITO (Soporta hasta  5MB)" , "error").then(function(){
+                            urlDoc= "https://stamping.io/explorer/?trxid="+trxId
+                            sendFileFreex(aHash, aFile, aQr, aQrOption, aURL ,theFiletype );
+                        });
+                        //break;  
+                      } else {
+                        //FyRRXYHYdAMyzaHJ5v59A8kDIgf2  
+                        var storage = firebase.storage();
+                        var storageRef = storage.ref();
+                        theFilename=hex_sha1(theFilename+hex_sha1(firebase.database.ServerValue.TIMESTAMP))
+                        var documentsRef = storageRef.child('/documents/'+theFilename); 
+                        swal("Un momento por favor, estamos guardando el documento...", {
+                          button: false,
+                          icon: "info",
+                        });
+                        documentsRef.putString(txtFileBase64, 'data_url').then(function(snapshot) { 
+
+                          aURL="https://firebasestorage.googleapis.com/v0/b/"+snapshot.ref.bucket+"/o/documents%2F"+encodeURIComponent(theFilename)+"?alt=media"
+                          
+                            urlDoc= "https://stamping.io/explorer/?trxid="+trxId
+                            sendFileFreex(aHash, aFile, aQr, aQrOption, aURL  , theFiletype);
+                        });
+
+                      }
+                  }
+                  if  (value=="no") {
+                    
+                      swal("El archivo no ha sido guardado, por favor mantengalo en custodia en un lugar seguro por que lo puede necesita en un futuro si desea comprobar en registro en la Blockchain").then(function(){
+                          urlDoc= "https://stamping.io/explorer/?trxid="+trxId
+                          sendFileFreex(aHash, aFile, aQr, aQrOption, aURL  ,theFiletype);
+                      })
+                  } 
+                  
+                });*/
+}          
+function sendFileFreex(aHash, aFile, aQr, aQrOption, aURL  , theFiletype) {
+    
+    
+    swal({type:'info',title: 'Estamos registrando en la Blockchain de Stamping.io, por favor espere...',showCancelButton: false,showCloseButton: false,showConfirmButton: false})
+    if (aQrOption=="YES" && aQr!=="NOT_QR") {
+        trxId = hex_sha1(aQr);
+    } else {
+        trxId = hex_sha1(aHash);
+    }
+    
+    hashvalue = aHash;
+    if (firebase.auth().currentUser===null) {
+        userId = "fLj2yhNC6abwwFdBYZTxMjjYt5F3";
+    } else {
+        userId = firebase.auth().currentUser.uid;
+    }
+    if (lang=="en") {
+        aResume = "Registering file "+aFile;
+    } else {
+        aResume = "Registrando archivo "+aFile;
+    }
+    
+    data ={
+            hash1: aHash,
+            hashType  : "SHA256",
+            owner     : userId,
+            resume    : aResume,
+            userId    : userId,
+            url       : aURL,
+            type      : theFiletype,
+            transactionType: "Stamping.io|fileFree",
+            timestamp: firebase.database.ServerValue.TIMESTAMP,
+            status:"Endosado"
+            }
+    if (aQr!=="NOT_QR") {
+        data.data='{"qr":"'+aQr+'"}'
+        data.qrlink=aQr;
+    }        
+
+
+    firebase.database().ref('transactions/' + userId+"/"+trxId).once('value').then(function(snapshot) {
+        if (!snapshot.val()) { 
+            firebase.database().ref('transactions/' + userId+"/"+trxId).set(data).then(function(){
+                firebase.database().ref('transactionsList/' +trxId).set(data).then(function(){
+                    setBlockchain(data);
+                    document.getElementById('filerow').style.display="none";
+                    document.getElementById('msmEnd').style.display="flex";
+                    document.getElementById('myaddr').value=urlDoc
+                    document.getElementById('myaddr1').href=urlDoc
+                    update_qrcode2(urlDoc);
+                    
+                })
+            })    
+        } else {
+            if (lang="es")
+                msgKo("La credencial ya existe", "TrxId: "+trxId, "Ver transacci√≥n", "https://stamping.io/explorer/?trxid="+trxId)
+            else
+                msgKo("Duplicate transaction", "TrxId: "+trxId+" already exists!", "Ok", "")
+        }
+    })
+    
+    
+}
+
+
+function sendFile(aHash, aFile, aQr, aQrOption  ) {
+    swal("Un momento por favor, estamos registrando en la Blockchain de Stamping.io!", {
+      button: false,
+      icon: "info",
+    });
+
+    if (aQrOption=="YES" && aQr!=="NOT_QR") {
+        
+        trxId = hex_sha1(aQr);
+    } else {
+        trxId = hex_sha1(aHash);
+    }
+    hashvalue = aHash;
+    userId = firebase.auth().currentUser.uid;
+    if (lang=="en") {
+        aResume = "Registering file "+aFile;
+    } else {
+        aResume = "Registrando archivo "+aFile;
+    }
+    
+    data ={
+            hash1: aHash,
+            hashType  : "SHA256",
+            owner     : userId,
+            resume    : aResume,
+            userId    : userId,
+            transactionType: "Stamping.io|file",
+            timestamp: firebase.database.ServerValue.TIMESTAMP,
+            status:"Endosado"
+            }
+    if (aQr!=="NOT_QR") {
+        data.data='{"qr":"'+aQr+'"}'
+        data.qrlink=aQr;
+    }        
+
+
+    firebase.database().ref('transactions/' + userId+"/"+trxId).once('value').then(function(snapshot) {
+        if (!snapshot.val()) { 
+            firebase.database().ref('transactions/' + userId+"/"+trxId).set(data).then(function(){
+                firebase.database().ref('transactionsList/' +trxId).set(data).then(function(){
+                    setBlockchain(data);
+                    document.getElementById('filerow').style.display="none";
+                })
+                
+            })    
+        } else {
+            if (lang="es")
+                msgKo("La credencial ya existe", "TrxId: "+trxId, "Ver transacci√≥n", "https://stamping.io/explorer/?trxid="+trxId)
+            else
+                msgKo("Duplicate transaction", "TrxId: "+trxId+" already exists!", "Ok", "")
+        }
+    })
+    
+    
+}
+
+function sendHash() {
+    swal("Un momento por favor, estamos registrando en la Blockchain de Stamping.io!", {
+      button: false,
+      icon: "info",
+    });
+    
+    hashvalue = document.getElementById('jsonTxt').value;
+    data = getData();
+    data.hashdata = null; //Eliminar esta propiedad
+    setBlockchain(data);
+    /*
+    firebase.database().ref('transactions/' + userId+"/"+trxId).once('value').then(function(snapshot) {
+        if (!snapshot.val()) { 
+            firebase.database().ref('transactions/' + userId+"/"+trxId).set(data).then(function(){
+                firebase.database().ref('transactionsList/' +trxId).set(data).then(function(){
+                    
+                })
+            })    
+        } else {
+            if (lang="es")
+                msgKo("Transacci√≥n duplicada", "TrxId: "+trxId+" ya existe!", "Ok", "")
+            else
+                msgKo("Duplicate transaction", "TrxId: "+trxId+" already exists!", "Ok", "")
+        }
+    })*/
+
+}
+
+
+function sendData() {
+    if (lang=="en") {
+        swal("Wait a moment please...", {button: false,icon: "info"});
+    } else {
+        swal("Espere un momento por favor...", {button: false,icon: "info"});
+    }
+    
+    setBlockchain(getData());
+}
+
+function hex_to_ascii(str1)
+ {
+     //console.log(str1)
+     if (typeof str1=="undefined") {
+         return ("");
+     }
+	var hex  = str1.toString();
+	var str = '';
+	for (var n = 0; n < hex.length; n += 2) {
+		str += String.fromCharCode(parseInt(hex.substr(n, 2), 16));
+	}
+	return str;
+ }
+ 
+ var xuser 
+/*Datos del Perfil*/
+function deletePrivKey() {
+    swal("¬øDesea eliminar la clave privada de nuestros servidores, aseg√∫rese de haberla descargado porque esta operaci√≥n es irreversible?", {
+                  buttons: {
+                    op1: {
+                      text: "No deseo",
+                      value: "no"
+                    },
+                    op2: {
+                      text: "Si deseo",
+                      value: "si"
+                    }
+                  },
+                })
+                .then((value) => {
+
+                  if  (value=="si") {
+                      firebase.database().ref('/users/' +xuser+"/privkey").set(null)
+                  }
+                  if  (value=="no") {
+
+                  } 
+                  
+                });
+
+}    
+
+function loadPerfil() {
+  firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+          xuser = user.uid
+          
+    //var userId = firebase.auth().currentUser.uid;
+    return firebase.database().ref('/users/' + user.uid).once('value').then(function(snapshot) {
+        if (snapshot.val()) { 
+            document.getElementById("id").value=snapshot.val().id
+            document.getElementById("name").value=snapshot.val().username
+            document.getElementById("phone").value=snapshot.val().phone
+            document.getElementById("email").value=snapshot.val().email
+            document.getElementById("token").innerHTML=snapshot.val().tokenbase64
+            //console.log(snapshot.val())
+            
+            
+            
+            
+            if (typeof snapshot.val().privkey!=="undefined") {
+                document.getElementById("singPrivate").innerHTML=hex_to_ascii(snapshot.val().privkey)
+                document.getElementById("singPrivateC").innerHTML=hex_to_ascii(snapshot.val().privkeyC)
+                var contenidoDeArchivo = hex_to_ascii(snapshot.val().privkey);
+                var elem = document.getElementById('downloafPrivKey');
+                
+                elem.download = user.uid+".pkey";
+                elem.href = "data:application/octet-stream," 
+                                     + encodeURIComponent(contenidoDeArchivo);
+            }   else {
+                document.getElementById("adeletePrivKey").style="display:none;"   
+                document.getElementById("downloafPrivKey").style="display:none;"
+                
+                document.getElementById("adeletePrivKeyC").style="display:none;"   
+                document.getElementById("downloafPrivKeyC").style="display:none;"
+                document.getElementById("msgPrivKey").innerHTML ="La llave privada ha sido eliminada de nuestros servidores, si la pierde deber&aacute crear una nueva cuenta"
+                
+                
+            }                  
+            if (typeof snapshot.val().pubkey==="undefined") {
+                
+                document.getElementById("dataSing").style="display:none;"   
+            } else {
+                document.getElementById("signPublic").innerHTML=hex_to_ascii(snapshot.val().pubkey)
+                document.getElementById("signPublicC").innerHTML=hex_to_ascii(snapshot.val().pubkeyC)
+            }
+            
+            document.getElementById("userpass").innerHTML="User: "+snapshot.val().nonce+"<br>Password: "+snapshot.val().token
+            document.getElementById("userpass2").innerHTML=" &token= "+snapshot.val().token
+             document.getElementById("userpass3").innerHTML=" &client_id= "+user.uid+"<br>&api_key= "+snapshot.val().token+"<br>&consumidor= "+snapshot.val().nonce
+            
+            document.getElementById("uid").innerHTML=user.uid
+            if (typeof snapshot.val().webhook=="undefined" || snapshot.val().webhook=="undefined") document.getElementById("webhook").value="" 
+            else document.getElementById("webhook").value=snapshot.val().webhook
+            
+            if (typeof snapshot.val().lacchainurl=="undefined" || snapshot.val().lacchainurl=="undefined") document.getElementById("lacchainurl").value="" 
+            else document.getElementById("lacchainurl").value=snapshot.val().lacchainurl
+            
+            
+            if (typeof snapshot.val().webhooktoken=="undefined" || snapshot.val().webhooktoken=="undefined")  document.getElementById("webhooktoken").value=""
+            else document.getElementById("webhooktoken").value=snapshot.val().webhooktoken
+
+            if (typeof snapshot.val().webhookTransactionTypeList=="undefined" || snapshot.val().webhookTransactionTypeList=="undefined")  
+                document.getElementById("webhookTransactionTypeList").value=""
+            else 
+                document.getElementById("webhookTransactionTypeList").value=snapshot.val().webhookTransactionTypeList
+
+           
+            //if (typeof snapshot.val().webhookr=="undefined" || snapshot.val().webhookr=="undefined") document.getElementById("webhookr").value="" 
+            //else document.getElementById("webhookr").value=snapshot.val().webhookr
+            //if (typeof snapshot.val().webhooktokenr=="undefined" || snapshot.val().webhooktokenr=="undefined")  document.getElementById("webhooktokenr").value=""
+            //else document.getElementById("webhooktokenr").value=snapshot.val().webhooktokenr
+            
+            
+
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("myDiv").style.display = "block";
+  
+
+        }
+     });
+      } else {
+            window.location.href = "/login";
+      }
+      });     
+    
+}
+
+function savePerfil() {
+    var user = firebase.auth().currentUser;
+    var data={
+        id: document.getElementById("id").value,
+        username: document.getElementById("name").value,
+        phone: document.getElementById("phone").value,
+        email: document.getElementById("email").value,
+        lacchainurl: document.getElementById("lacchainurl").value,
+        webhook: document.getElementById("webhook").value,
+        webhooktoken: document.getElementById("webhooktoken").value,
+        webhookTransactionTypeList: document.getElementById("webhookTransactionTypeList").value
+        //webhookr: document.getElementById("webhookr").value,
+        //webhooktokenr: document.getElementById("webhooktokenr").value
+        
+    }
+        
+    firebase.database().ref('users/' + user.uid+"").update(data).then(function(){
+            if (lang==="en") { 
+                msgOk("Satisfactory recording!",
+                "Your data has been updated correctly",
+                "Ok",
+                ""
+                );
+            } else {
+                msgOk("Grabacion satisfactoria!",
+                "Sus datos han sido actualizados correctamente",
+                "Entendido",
+                ""
+                );
+                
+            }
+    })
+    
+    
+    
+}
+
+
+/*Fin de Datos de Perfil*/
+function validateLogin() {
+  firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+    //var userId = firebase.auth().currentUser.uid;
+    return firebase.database().ref('/users/' + user.uid).once('value').then(function(snapshot) {
+        if (snapshot.val()) { 
+            
+            document.getElementById('token').innerHTML= "Authorization: Basic "+snapshot.val().tokenbase64
+            //document.getElementById("userpass").innerHTML="User: "+aNonce+" Password: "+aValueSha1
+            
+            if (lang="en") {
+                var xdata={
+                    evidence     : "Hash-256 (Input)",
+                    transactionType: "Stamping.io:API"
+                }
+            } else {
+                var xdata={
+                    evidence     : "Hash-256 (Entrada)",
+                    transactionType: "Stamping.io:API"
+                }    
+            }
+            document.getElementById("jsonTxt").value = JSON.stringify(xdata);
+            setHash();
+        }
+     });
+      } else {
+            window.location.href = "/login";
+      }
+      });     
+    
+}
+
+isLogged = function () {
+
+      firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            swal("Un momento por favor, estamos validando si tiene acceso!", {
+                button: false,
+                icon: "info",
+            });
+            
+             var request = new XMLHttpRequest();
+                request.open('GET', 'https://api.stamping.io/stamp/?token=eTF24rNygbYIJz2LJApDbdHjduY&evidence='+xsha256(user.uid+firebase.database.ServerValue.TIMESTAMP)+"&hash2="+user.uid+"&transactionType=loginWeb");
+                request.onreadystatechange = function () {
+                    if (this.readyState === 4) {
+                        generateTokenInit();
+                        window.location.href = "/panel/list/?lang=es";
+                    }    
+                } 
+                request.send()              
+            //firebase.database().ref('users/' + user.uid+"/timestamp").set(firebase.database.ServerValue.TIMESTAMP).then(function(){
+                
+            //})  
+      } else {
+            console.log("No Logeado")
+      }
+      });
+}
+
+signup = function (aEmail, aPassword){
+      firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        var email = user.email;
+        var uid = user.uid;
+        var providerData = user.providerData;
+        
+        var database = firebase.database();
+        writeUserData(uid,email);
+        // ...
+      }
+      });
+      
+            firebase.auth().createUserWithEmailAndPassword(aEmail, aPassword).catch(function(error) {
+              // Handle Errors here.
+              var errorCode = error.code;
+              var errorMessage = error.message;
+              msgKo("Code: "+errorCode+" - "+errorMessage,"Por favor modifique los datos","Entendido","")
+              // ...
+            });
+      
+
+}
+
+   function countx(Tag, aTotal){
+                  
+                  
+                  var counter = { var: aTotal-60 };
+                  a=TweenMax.to(counter, 3, {
+                    var: aTotal, 
+                    onUpdate: function () {
+                      var number = Math.ceil(counter.var);
+                      $(Tag).html(number);
+                      if(number === counter.var){ a.kill(); }
+                    },
+                    onComplete: function(){
+                      //countx();
+                    },    
+                    ease:Circ.easeOut
+                  });
+                }
+                
+         
+                         
+                //<!--div class="counter">0</div-->
+                //<script>
+                //firebase.auth().signInAnonymously().catch(function(error) {
+                  // Handle Errors here.
+                  //var errorCode = error.code;
+                  //var errorMessage = error.message;
+                  // ...
+                //});
+                
+                //firebase.auth().onAuthStateChanged(function(user) {
+                  //if (user) {
+                    //var isAnonymous = user.isAnonymous;
+                    //var uid = user.uid;
+                  
+                    //  getCountTrans()
+                  //} else {
+                    // User is signed out.
+                    // ...
+                  //}
+                  // ...
+                //});
+                
+                //</script>
+       
+                
+getCountTrans = function () {
+firebase.database().ref('/transactionsList/').once('value').then(function(snapshot) {
+    countx('.counter', 35000)
+
+ }).catch(function(error) {
+              // Handle Errors here.
+              var errorCode = error.code;
+              var errorMessage = error.message;
+              console.log(errorMessage)
+              // ...
+            });
+                 
+}
+var myObj 
+ mobilecheck = function() {
+      var check = false;
+      (function(a){if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4))) check = true;})(navigator.userAgent||navigator.vendor||window.opera);
+      return check;
+    };
+  
+        function sendPassword() {
+            var auth = firebase.auth();
+            var emailAddress = document.getElementById("email").value;
+            
+            auth.sendPasswordResetEmail(emailAddress).then(function() {
+                
+              msgOk("Mensaje enviado", "Se ha enviado un email con las instrucciones para restablecer su contraseÔøΩ0ÔøΩ9a", "ok", "")
+            }).catch(function(error) {
+               // Handle Errors here.
+                  var errorCode = error.code;
+                  var errorMessage = error.message;
+                  // ...
+                  msgKo("Error "+errorCode, errorMessage, "ok", "")
+            });
+        }
+        function login() {
+            firebase.auth().signInWithEmailAndPassword(document.getElementById("email").value, document.getElementById("password").value).catch(function(error) {
+                  // Handle Errors here.
+                  var errorCode = error.code;
+                  var errorMessage = error.message;
+                  // ...
+                  msgKo("Error "+errorCode, errorMessage, "ok", "")
+            });
+        }
+createAccount = function () {
+    swal("Un momento por favor, estamos creando su billetera de datos (data wallet)...", {
+                button: false,
+                icon: "info",
+    });
+            
+    var aEmail = document.getElementById("email").value
+    var aPassword = document.getElementById("password").value
+    var request = new XMLHttpRequest();
+    request.open('GET', 'https://api.stamping.io/getSigner.php?pwd='+aPassword);
+    request.onreadystatechange = function () {
+        if (this.readyState === 4) {
+            
+            //console.log(this.responseText)
+            myObj = JSON.parse(this.responseText);
+            signup(aEmail, aPassword);
+            
+        }    
+    } 
+    request.send()
+    
+} 
+
+
+var sha256 = function sha256(ascii) {
+	function rightRotate(value, amount) {
+		return (value>>>amount) | (value<<(32 - amount));
+	};
+	
+	var mathPow = Math.pow;
+	var maxWord = mathPow(2, 32);
+	var lengthProperty = 'length'
+	var i, j; // Used as a counter across the whole file
+	var result = ''
+
+	var words = [];
+	var asciiBitLength = ascii[lengthProperty]*8;
+	
+	//* caching results is optional - remove/add slash from front of this line to toggle
+	// Initial hash value: first 32 bits of the fractional parts of the square roots of the first 8 primes
+	// (we actually calculate the first 64, but extra values are just ignored)
+	var hash = sha256.h = sha256.h || [];
+	// Round constants: first 32 bits of the fractional parts of the cube roots of the first 64 primes
+	var k = sha256.k = sha256.k || [];
+	var primeCounter = k[lengthProperty];
+	/*/
+	var hash = [], k = [];
+	var primeCounter = 0;
+	//*/
+
+	var isComposite = {};
+	for (var candidate = 2; primeCounter < 64; candidate++) {
+		if (!isComposite[candidate]) {
+			for (i = 0; i < 313; i += candidate) {
+				isComposite[i] = candidate;
+			}
+			hash[primeCounter] = (mathPow(candidate, .5)*maxWord)|0;
+			k[primeCounter++] = (mathPow(candidate, 1/3)*maxWord)|0;
+		}
+	}
+	
+	ascii += '\x80' // Append ∆á' bit (plus zero padding)
+	while (ascii[lengthProperty]%64 - 56) ascii += '\x00' // More zero padding
+	for (i = 0; i < ascii[lengthProperty]; i++) {
+		j = ascii.charCodeAt(i);
+		if (j>>8) return; // ASCII check: only accept characters in range 0-255
+		words[i>>2] |= j << ((3 - i)%4)*8;
+	}
+	words[words[lengthProperty]] = ((asciiBitLength/maxWord)|0);
+	words[words[lengthProperty]] = (asciiBitLength)
+	
+	// process each chunk
+	for (j = 0; j < words[lengthProperty];) {
+		var w = words.slice(j, j += 16); // The message is expanded into 64 words as part of the iteration
+		var oldHash = hash;
+		// This is now the undefinedworking hash", often labelled as variables a...g
+		// (we have to truncate as well, otherwise extra entries at the end accumulate
+		hash = hash.slice(0, 8);
+		
+		for (i = 0; i < 64; i++) {
+			var i2 = i + j;
+			// Expand the message into 64 words
+			// Used below if 
+			var w15 = w[i - 15], w2 = w[i - 2];
+
+			// Iterate
+			var a = hash[0], e = hash[4];
+			var temp1 = hash[7]
+				+ (rightRotate(e, 6) ^ rightRotate(e, 11) ^ rightRotate(e, 25)) // S1
+				+ ((e&hash[5])^((~e)&hash[6])) // ch
+				+ k[i]
+				// Expand the message schedule if needed
+				+ (w[i] = (i < 16) ? w[i] : (
+						w[i - 16]
+						+ (rightRotate(w15, 7) ^ rightRotate(w15, 18) ^ (w15>>>3)) // s0
+						+ w[i - 7]
+						+ (rightRotate(w2, 17) ^ rightRotate(w2, 19) ^ (w2>>>10)) // s1
+					)|0
+				);
+			// This is only used once, so *could* be moved below, but it only saves 4 bytes and makes things unreadble
+			var temp2 = (rightRotate(a, 2) ^ rightRotate(a, 13) ^ rightRotate(a, 22)) // S0
+				+ ((a&hash[1])^(a&hash[2])^(hash[1]&hash[2])); // maj
+			
+			hash = [(temp1 + temp2)|0].concat(hash); // We don't bother trimming off the extra ones, they're harmless as long as we're truncating when we do the slice()
+			hash[4] = (hash[4] + temp1)|0;
+		}
+		
+		for (i = 0; i < 8; i++) {
+			hash[i] = (hash[i] + oldHash[i])|0;
+		}
+	}
+	
+	for (i = 0; i < 8; i++) {
+		for (j = 3; j + 1; j--) {
+			var b = (hash[i]>>(j*8))&255;
+			result += ((b < 16) ? 0 : '') + b.toString(16);
+		}
+	}
+	return result;
+};
+
+Å <[      aH¥%aH¥%Co}ÚaKC%   S    O^partitionKey=%28http%2Cstamping.io%29,:http://stamping.io/js/firebase.js?v=3.2.64 strongly-framed 1 request-method GET response-head HTTP/1.1 200 OK
+Date: Mon, 20 Sep 2021 13:46:52 GMT
+Server: Apache
+Last-Modified: Tue, 31 Aug 2021 02:51:45 GMT
+Accept-Ranges: bytes
+Content-Length: 56633
+Content-Type: application/javascript
+ original-response-headers Date: Mon, 20 Sep 2021 13:46:52 GMT
+Server: Apache
+Upgrade: h2,h2c
+Connection: Upgrade, Keep-Alive
+Last-Modified: Tue, 31 Aug 2021 02:51:45 GMT
+Accept-Ranges: bytes
+Content-Length: 56633
+Keep-Alive: timeout=5, max=100
+Content-Type: application/javascript
+ ctid 2 uncompressed-len 0 net-response-time-onstart 363 net-response-time-onstop 766   ›9

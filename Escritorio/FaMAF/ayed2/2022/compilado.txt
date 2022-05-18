@@ -1,0 +1,5 @@
+compilado
+
+gcc -Wall -Wextra -pedantic -std=c99 -c helpers.c sort.c main.c
+
+gcc -Wall -Wextra -pedantic -std=c99 helpers.o sort.o main.o -o ej3
