@@ -1,0 +1,13 @@
+que es el encapsulamiento?
+
+ES: yo no permito que sea visible la forma en que mi tad esta implementado
+
+La implementacion del 1-a no logra encapsulamiento, porque la idea es no mostrar lo que hace.
+
+El .h seria publico y el .c es para nosotros
+
+Si tengo muchos punteros apuntando a la misma estructura y hago un free de uno de ellos, el resto de punteros tengo que setearlos a NULL.
+
+Foward declaration es intentar de usar un tipo antes de declararlo
+
+

@@ -1,0 +1,4 @@
+SCANF
+
+si yo le paso un "%d" me va a leer solamente un int, el primero que encuentres si yo tengo 12foo va a leer solo el 12.
+si yo tengo un caracter entre dos _ le tengo que pasar "_%c_" y si quiero que lea con espacios se los tengo que poner porque si yo tengo 12 45 55 y yo le paso "%d%d%d" no me lo va a leer le tengo que pasar " %d %d %d "

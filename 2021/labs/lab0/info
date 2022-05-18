@@ -1,0 +1,32 @@
+Para aprobar:
+	Se toman 2 parcialitos y un proyecto
+	
+Para regularizar hay que aprobar 2 de esas 3 cosas. (El proyecto hace de recuperatorio)
+
+Para promocionar hay que promocionar todas las cosas.
+
+Los parciales son de programacion como los de ayed 1, es importante seguir los enunciados (IMPORTANTE)
+
+Flags para compilar:
+
+	gcc -Wall -Wextra -pedantic -Werror -std=c99 lab0.c -o Hola
+
+
+	-o nos dice como se va a llamar el archivo de salida, el resto son todos warnings
+	
+El comando less archivo te muestra el codigo en binario
+
+tmux es un programa que me permite subdividir la consula
+
+htop = procesos de la computadora
+
+LAB 0
+
+Arreglos y estructuras
+
+\t es un tad adentro de c
+%d puedo rellenar con valores int
+%c reemplza con valores char
+
+
+

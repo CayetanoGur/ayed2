@@ -1,0 +1,24 @@
+TAR GZ
+
+Como comprimir archivos: archivo.tar.gz
+
+Se hace a travez de la consola.
+
+Poner los archivos dentro de una carpeta y ahi comprimirlo, asi cuando se descomprima quede un carpeta y no archivos sueltos
+
+comando para comprimir: 
+
+tar -czvf LAB0_GutierrezCayetano.tar.gz lab0 (carpeta que quiro comprimir)
+
+-c (crear archivo)
+ z --> gz
+ v --> indica que va haciendo
+ f --> nombre del archivo
+ 
+comando para descomprimir:
+ 
+tar -xfv LAB0_GutierrezCayetano.tar.gz (nombre del archivo)
+ 
+ x --> extraer
+ f --> que archivo quiero descomprimir
+ v --> muestra que va haciendo

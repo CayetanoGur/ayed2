@@ -1,0 +1,34 @@
+NOTAS LAB AYED2
+
+el for tiene 3 partes:
+	1- la declaracion de la variable a iterar.
+	2- una condicion booleana que mientaras se cumpla sigue el for.
+	3- variable++ indica la iteracion de la variable.
+	   (se usa el ++ en vez de i = i + 1)
+	
+Si la condicion del for se complica mucho hay que usar un while
+
+si pones las librerias <assert.h> las busca en las librerias de c
+pero si pones #include "assert.h" la busca en el directorio que estes.
+
+Como comprimir archivos: archivo.tar.gz
+Se hace a travez de la consola.
+Poner los archivos dentro de una carpeta y ahi comprimirlo, asi cuando se descomprima quede un carpeta y no archivos sueltos
+
+comando para comprimir: 
+tar -czvf LAB0_GutierrezCayetano.tar.gz lab0 (carpeta que quiro comprimir)
+
+-c (crear archivo)
+ z --> gz
+ v --> indica que va haciendo
+ f --> nombre del archivo
+ 
+ comando para descomprimir:
+ tar -xfv LAB0_GutierrezCayetano.tar.gz (nombre del archivo)
+ 
+ x --> extraer
+ f --> que archivo quiero descomprimir
+ v --> muestra que va haciendo
+ 
+ 
+ 

@@ -1,0 +1,21 @@
+{
+    "files.associations": {
+        "assert.h": "c",
+        "string_view": "c",
+        "tuple": "c",
+        "stdlib.h": "c",
+        "pair.h": "c",
+        "*.tcc": "c",
+        "functional": "c",
+        "fstream": "c",
+        "istream": "c",
+        "streambuf": "c",
+        "cmath": "c",
+        "random": "c",
+        "limits": "c",
+        "memory": "c",
+        "numeric": "c",
+        "ostream": "c",
+        "stdio.h": "c"
+    }
+}

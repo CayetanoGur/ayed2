@@ -1,0 +1,6 @@
+PROGRAMACION DINAMICA:
+	como me doy cuenta como llenar la tabla??
+	Me fijo en la uncion recursiva, me fijo si esta mira hacia atras por ej i-1 significa que mira a la fila o columna de atras y si fuera i+1 miraria a la siguiente
+	
+	
+	

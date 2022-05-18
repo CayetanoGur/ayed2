@@ -1,0 +1,51 @@
+gcc -Wall -Werror -Wextra -pedantic -std=c99 -c array_helpers.c weather.c
+
+gcc -Wall -Werror -Wextra -pedantic -std=c99 -o weather *.o main.c
+
+Hasta ahora venimos conpilando de esta manera.
+el archivo se tiene que llamar Makefile con la M mayuscula
+
+MAKEFILE
+
+Objetivo: dependencias
+		instrucciones
+		
+sorter:
+	gcc -Wall -Werror -Wextra -pedantic -std=c99 -c array_helpers.c weather.c
+
+	gcc -Wall -Werror -Wextra -pedantic -std=c99 -o weather *.o main.c
+
+el makefile te hace mas sencillo el compilado.
+
+Tambien lo puedo usar para automatizar cosas, por ej borrar archivos.
+
+clean:
+		rm -f sorter array_helpers.o sort.o
+		rm -f *.o (borra todo lo .o)
+		
+.PHONY: clean (ejecuta aunque haya un archivo que se llame igual)
+
+se pueden crear variables
+
+CFLAGS = -Wall -Werror -Wextra -pedantic -std=c99 
+
+SRC = array_helpers.c sort.c
+
+CC = gcc
+
+entonces ahora lo puedo usar asi:
+sorter: objetos
+
+	$(CC) $(CFLAGS) -c $(SRC)
+
+	gcc $(CFLAGS) -o weather *.o main.c
+
+el comando make se usa para ejecutar.
+
+
+run: sorter 
+	./sorter ../input/example_unsorted.in
+
+
+
+

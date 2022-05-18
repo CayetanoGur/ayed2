@@ -1,0 +1,30 @@
+static bool check_greater (abb_elem e, abb tree){
+    bool greater = tree;
+    if (tree != NULL){
+        greater = elem_less(tree->elem, e) && check_greater(e, tree->left)
+                                          && check_greater(e, tree->right);
+    }
+    return greater;
+}
+
+static bool check_smaller (abb_elem e, abb tree){
+    bool smaller = true;
+    if (tree != NULL){
+        smaller = elem_less(e, tree->elem) && check_smaller(e, tree->left) 
+                                           && check_smaller(e, tree->right);
+    }
+    return smaller;
+}
+
+static bool invrep(abb tree) {
+    bool res = true;
+    if (tree == NULL){
+        res = true;
+    }
+    else{
+        res = check_greater(tree->elem, tree->left) &&
+              check_smaller(tree->elem, tree->right) &&
+              invrep(tree->left) && invrep(tree->right);
+    }
+    return res;
+}

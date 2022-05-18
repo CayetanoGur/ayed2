@@ -1,0 +1,198 @@
+NOTAS LAB AYED2
+
+el for tiene 3 partes:
+	1- la declaracion de la variable a iterar.
+	2- una condicion booleana que mientaras se cumpla sigue el for.
+	3- variable++ indica la iteracion de la variable.
+	   (se usa el ++ en vez de i = i + 1)
+	
+Si la condicion del for se complica mucho hay que usar un while
+
+si pones las librerias <assert.h> las busca en las librerias de c
+pero si pones #include "assert.h" la busca en el directorio que estes.
+
+Como comprimir archivos: archivo.tar.gz
+Se hace a travez de la consola.
+Poner los archivos dentro de una carpeta y ahi comprimirlo, asi cuando se descomprima quede un carpeta y no archivos sueltos
+
+comando para comprimir: 
+tar -czvf LAB0_GutierrezCayetano.tar.gz lab0 (carpeta que quiro comprimir)
+
+-c (crear archivo)
+ z --> gz
+ v --> indica que va haciendo
+ f --> nombre del archivo
+ 
+ comando para descomprimir:
+ tar -xfv LAB0_GutierrezCayetano.tar.gz (nombre del archivo)
+ 
+ x --> extraer
+ f --> que archivo quiero descomprimir
+ v --> muestra que va haciendo
+ 
+ 
+ LAB 1
+ int main(int argc, char *argv[])  --> ver que indica cada parametro
+ 
+ 
+ Comando cat te muestra por la consola el contenido de un archivo
+          _
+ fopen()   |
+ fscanf()  |--> todo con f es para hacer cosas con archivos	
+ fclose() _|
+ 
+ char * es un texto 
+ 
+ fopen(char* pathname, const char *mode) = le das el path y el modo de uso, leerlo, escribirlo o las dos.
+ "r" --> read
+ "w" --> write
+ "r+" --> read and write
+ 
+ ej: fopen("input/example-easy.in", "r")
+ 
+ argv[0] --> reader
+ argv[1] 
+ 
+ EJ 2
+ Usar fprintf()
+ 
+ EJ3
+ en los archivos.h esta el que y en los archivos.c esta el como, los archivos.o tienen objetos.
+ .h es donde están todas las definiciones de las fun, el qué hacen las fun.
+ 
+ En el 3 los archivos .h voy a poner los prototipos como:
+ bool array_is_sorted(int a[], unsigned int max_size);
+  
+ EJ 5
+ typedef hace alias de tipos
+ 
+ -----------------------------------------------------------------------------------------------------------------------------
+ TIP alumno profe (no entendi asique no le hagas caso a lo que dice aca)
+ 
+ typedef struct {int x;
+ int y;} point;
+ 
+ Uno dos lugares de memoria para usaralos juntos, declaro un tipo de estructura que se llama point que va hacer tal cosa
+ 
+ EN CAMBIO
+ struct point {int x; 
+ int y;}
+ 
+ Esto es una estructura que define un nuevo tipo.
+ 
+ -----------------------------------------------------------------------------------------------------------------------------
+  
+ Mas ejercicos de c https://www.hackerrank.com/domains/c
+ 
+ 
+ Compilar:
+ 	-c --> Dejas las cosas listas para ser linkeadas pero no las linkea
+ 	-o --> Te lo linkea a todo
+ 	
+ 	
+ ----------------------------------------------------------------------------
+ 
+ LAB 2
+ 
+ GDB
+ 
+ Nos permite correr el programa sentencia por sentencia, ver valores de variables, y muchas cosas mas
+ run (r) -- corre el programa
+ break (b) -- pone un breakpoint
+ next (n) -- va hacia la siguiente linea
+ step -- ingresa a la funcion 
+ print -- muetra el valor de una variable por ej.
+ continuing (c) -- corre el programa hasta el proximo breakpoint
+ quit (q)
+ bt
+ 
+ ------------------------------------------------------
+ LAB 3
+ 
+ los @ es un estandar para escribir datos, docstream?
+ 
+ PUNTEROS:
+ 
+ Son variables que almacenan un lugar de la memoria.
+ Con los punteros se puede ahorrar memoria.
+ Son un tipo especial de variable que representea un direccion de memoria.
+ Cuando definimos un puntero lo definimos como NULL.
+ 
+ OPERACIONES CON PUNTEROS
+ 
+ (*) = Operador de deferenciacion.
+ (&) = Operador de referenciacion.
+ Todas las direcciones de momorias ocupan lo mismo.
+ 
+ void* --> es un puntero que no tiene tipo
+ 
+ 0x prefijo que indica exadecimal.	
+ 
+ En el 1 tengo q usar fscanf
+ me tengo q fijar que el rango de los años este adentro de los años dado
+ para leer la cantidad de entradas que quiero se que cada 9 entradas estoy leyendo 1 linea
+ 
+ 
+ EJ 1 PARTE B)
+ 
+ tengo que poner de input  weather table, calcula la minima historica y devuelve un dato de tipo int
+ tengo que chequear todas las min temp y devolver la minima de las minimas,  weather._min_temp
+ 
+ en el 1 b en la primera funcion el arreglo weathertable, accedo al arreglo con tres for, que el primero para years, el segundo para month, y el tercero para days, osea esos for me recorren el arreglo completo.
+ 
+ DIFERENCIA ENTRE ARREGLO CON PUNTEROS O ARREGLO CON []
+ https://stackoverflow.com/questions/14298957/c-pointer-notation-compared-to-array-notation-when-passing-to-function
+ 
+ -g para compilar
+ 
+ ------------------------------------------------------------------------------------------------------------------------
+ 
+ LAB 4 y 5
+ Punteros
+ 
+ siempre que veo una flechita -> estoy accediendo a un puntero (ej p -> fst) p nunca puede ser null 
+ 
+ 
+ yo no quiero que el usuario que use mis TAD sepa como estan implementados, queiro que solo use lo que yo le brindo, entonces tengo que mantener el invariante de representacion priva asi como la implementacion del TAD.
+ 
+ el invariante de representacion deberia ser estatica(privada) y tiene que estar en el .c para que no se vea.
+ 
+ invariante de representacion: se cumple siempre, por ejemplo en las listas un array desde 1 a N el size es N siempre va a ser N.
+ si yo agrego un elemento y no aumenta el size entonces la funcion que agrega elementos es erronea ya que no cumple con el invariante de rep.
+ 
+ funcion de orden constante, siempre hace la misma cantidad de opoeraciones, que no crece la cantidada de operaciones sin importar el tamañano de la lista. 
+ funcion de orden lineal hace la cantidad de operacion del tamañano del arreglo, cambia con el tamaño de la lista.
+ 
+ Convenciones de nombres: _s_ se que es una estructura
+ 						  poner prefijos en los tads stack_pop, stack_empty, etc
+ 						  poner las constantess en mayuscula
+ 						  
+ 						  
+ buscar gdb tui
+ 
+ Static significa que solo puedo usar esa funcion en ese archivo, ayuda al encapsulamiento.
+ 
+ 
+ const -> palabra reservada del compilador. (BUSCAR)
+ 
+ 
+ preincremental y post incremental (++i, i++)
+ --i le quita uno antés de usar la variable i, i-- usa la variable y despues decrementa
+ 
+ Invalid read size es que esta leyendo de un lugar en la memoria que esta mal asignado.
+ 
+ s = 0x0 significa que es NULL el problema es que estoy dessreferenciando a null, uso bt en gdb para ver el bakctrace
+ 
+ 
+ LAB05
+ 
+ stack stack_empty(){
+    stack s = malloc(sizeof(struct _s_stack));
+    s->size = 0;
+    s->capacity = 0;
+    return s; 
+}
+  
+ diferencia entre malloc y calloc:
+ calloc le podes decir la cantidad de cosas que le queres reservar memoria, le decis la cantidad de espacio que le vas a dar a un puntero, y ademas la memoria que te devuelve ya esta inicializada en 0
+ 
