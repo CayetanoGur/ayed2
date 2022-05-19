@@ -5,7 +5,12 @@
 
 char *string_clone(const char *str) {
     char *clone=NULL;
-    /* COMPLETAR */
+    size_t length = strlen(str);
+    clone = calloc(length, sizeof(char));
+    for (size_t i = 0; i < length; ++i){
+        clone[i] = str[i];
+    }
+    clone[length] = '\0';
     return clone;
 }
 
@@ -44,7 +49,8 @@ int main(void) {
     copy = string_clone(original);
     printf("Original: %s\n", original);
     printf("Copia   : %s\n", copy);
-
+    free(copy);
+    copy = NULL;
 
     return EXIT_SUCCESS;
 }

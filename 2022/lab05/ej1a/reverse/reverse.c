@@ -54,14 +54,25 @@ int main(int argc, char *argv[]) {
   unsigned int length = array_from_file(array, MAX_SIZE, filepath);
   printf("Original: ");
   array_dump(array, length);
+  printf("length: %u \n",length);
 
-  int *new_array=NULL;
-  /**
-  *
-  *  --- COMPLETAR ----
-  *
-  */
-  printf("Reversed: ");
+  int *new_array = NULL;  
+  stack reverse = stack_empty();
+  stack_elem elem;
+  for (unsigned int i = 0; i < length; ++i){
+      elem = array[i];
+      reverse = stack_push(reverse, elem);
+  }
+  new_array = malloc(sizeof(int) * stack_size(reverse));
+  for (unsigned int i = 0; i < length; ++i){
+      new_array[i] = stack_top(reverse);
+      reverse = stack_pop(reverse);
+  }
+//   printf("Reversed stack: ");
+//   print_stack(reverse);  
+//   int *new_array = stack_to_array(reverse);
+
+  printf("Reversed array: ");
   array_dump(new_array, length);
   return (EXIT_SUCCESS);
 }

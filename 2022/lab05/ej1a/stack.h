@@ -78,4 +78,10 @@ stack_elem *stack_to_array(stack s);
 stack stack_destroy(stack s);
 
 
+/**
+* @brief Prints the stack
+* @param s A stack
+*/
+stack print_stack(stack s); 
+
 #endif

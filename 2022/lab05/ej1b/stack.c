@@ -35,6 +35,8 @@ stack stack_pop(stack s){
     return s;
 }
 
+/* falta hacer el size de orden constante */
+
 unsigned int stack_size(stack s){
     //assert(invrep(s));
     stack iterator = s;
