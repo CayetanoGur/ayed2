@@ -14,10 +14,10 @@ static bool invrep(stack s){
 }
 
 stack stack_empty(){
-    stack s;
-    s->elems = 0u;
-    s->capacity = 0u;
-    s->elems = NULL;
+    stack s = malloc(sizeof(struct _s_stack));
+    s->size = 0u;
+    s->capacity = 1u;
+    s->elems = malloc(sizeof(stack_elem));
     return s;
 }
 
@@ -25,23 +25,18 @@ stack stack_push(stack s, stack_elem e){
     /*
     Yo deberia pedir memoria para un elemento mas cada vez que hago un push
     */
-    unsigned int size = s->size + 1;
-    s->size = size;
-    
-    for (unsigned int i = size; i > 0; --i){
-        s->elems[i] = s->elems[i-1];
+    if (s->size == s->capacity){
+        s->capacity = 2u * s->capacity;
+        s->elems = realloc(s->elems,s->capacity * sizeof(stack_elem));
     }
-    s->elems[0] = e;
+    s->elems[s->size] = e;
+	s->size += 1u;
     return s;
 }
 
 stack stack_pop(stack s){
     assert(invrep(s));
-    for (unsigned int i = 0; i < s->size; ++i){
-        s->elems[i] = s->elems[i+1];
-    }
-    s->size = s->size-1;
-   
+    --s->size;
     return s;
 }
 
@@ -53,7 +48,7 @@ unsigned int stack_size(stack s){
 }
 
 stack_elem stack_top(stack s){
-    return s->elems[0];
+    return s->elems[s->size-1];
 }
 
 bool stack_is_empty(stack s){
@@ -61,19 +56,40 @@ bool stack_is_empty(stack s){
     return s == NULL;
 }
 
+// stack_elem *stack_to_array(stack s){
+//     //assert(invrep(s));
+//     unsigned int len = stack_size(s);
+//     stack_elem *array = malloc(len-1 * sizeof(stack_elem));
+//     for (unsigned i = 0; i < len; ++i){
+//         array[i] = s->elems[i];
+//     }
+//     return array;
+// }
+
 stack_elem *stack_to_array(stack s){
-    //assert(invrep(s));
-    unsigned int len = stack_size(s);
-    stack_elem *array = calloc(len, sizeof(stack_elem));
-    
-    return array;
+	assert(invrep(s));
+	stack_elem *array;
+	if(stack_is_empty(s)){
+		array = NULL;
+	}
+	else{
+		array = calloc(stack_size(s), sizeof(stack_elem));
+		for(unsigned int i = 0u; i < stack_size(s); ++i){
+			array[i] = s->elems[i];
+		}
+	}
+	assert(invrep(s));
+	return array;
 }
 
 
 stack stack_destroy(stack s){
     assert(invrep(s));
-   
-    return ;
+    free(s->elems);
+    s->elems = NULL;
+    free(s);
+    s = NULL;
+    return s;
 }
 
 // stack print_stack(stack s){
