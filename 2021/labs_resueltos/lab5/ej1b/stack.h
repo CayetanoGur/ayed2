@@ -77,5 +77,6 @@ stack_elem *stack_to_array(stack s);
 */
 stack stack_destroy(stack s);
 
+//stack print_stack(stack s)
 
 #endif

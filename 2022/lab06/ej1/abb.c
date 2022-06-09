@@ -19,45 +19,58 @@ static bool elem_less(abb_elem a, abb_elem b) {
 }
 
 static bool invrep(abb tree) {
-    /*
-     * Needs implementation
-     */
+    
     return true;
 }
 
 abb abb_empty(void) {
-    abb tree;
-    /*
-     * Needs implementation
-     */
+    abb tree = malloc(sizeof(struct _s_abb));
+    tree->left = NULL;
+    tree->right = NULL;
+    
     assert(invrep(tree) && abb_is_empty(tree));
     return tree;
 }
 
 abb abb_add(abb tree, abb_elem e) {
     assert(invrep(tree));
-    /*
-     * Needs implementation
-     */
+    abb it = tree;
+    while(it != NULL){
+        if(elem_eq(it->elem, e)){
+            printf("Element already exists");
+            return(EXIT_FAILURE);
+        }
+        else if(elem_less(it->elem, e)){
+            it = it->right;
+        }
+        else if(elem_less(e, it->elem)){
+            it = it->left;
+        }
+    }
+    it->elem = e;
+    it->left = NULL;
+    it->right = NULL;
+    
+    tree = it;
     assert(invrep(tree) && abb_exists(tree, e));
     return tree;
 }
 
 bool abb_is_empty(abb tree) {
-    bool is_empty=false;
     assert(invrep(tree));
-    /*
-     * Needs implementation
-     */
-    return is_empty;
+    return tree->left == NULL && tree->right == NULL;
 }
 
 bool abb_exists(abb tree, abb_elem e) {
     bool exists=false;
     assert(invrep(tree));
-    /*
-     * Needs implementation
-     */
+    abb aux = tree;
+    if(!elem_eq(e, aux->elem) && !exists){
+        abb_exists(aux->left,e);
+        abb_exists(aux->right,e);
+    }else{
+        exists = true;
+    }
     return exists;
 }
 

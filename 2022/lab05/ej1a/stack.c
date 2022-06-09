@@ -8,9 +8,9 @@ struct _s_stack{
     struct _s_stack * next;
 };
 
-static bool invrep(stack s){    
- return s != NULL;
-}
+// static bool invrep(stack s){    
+//  return s != NULL;
+// }
 
 stack stack_empty(){
     return NULL;
@@ -29,7 +29,8 @@ stack stack_pop(stack s){
     assert(invrep(s));
     stack erase;
     erase = s;
-    s = s->next;
+    s = erase->next;
+    erase->next = NULL;
     free(erase);
     erase = NULL;
     return s;
@@ -70,7 +71,7 @@ stack_elem *stack_to_array(stack s){
 
 
 stack stack_destroy(stack s){
-    assert(invrep(s));
+    //assert(invrep(s));
     stack aux_s = s;
     stack trash;
     while (aux_s->next != NULL){

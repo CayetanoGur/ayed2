@@ -16,7 +16,7 @@ static void array_dump(int a[], unsigned int length) {
 
 int main(void){
     stack s = stack_empty();
-    s = stack_push(s, 55);
+    s = stack_push(s, 0);
     s = stack_push(s, 1);
     s = stack_push(s, 2);
     s = stack_pop(s);
@@ -27,10 +27,12 @@ int main(void){
     stack_elem top = stack_top(s);
     printf("Size: %u \n", size);
     printf("Top: %d \n", top);
+    printf("print stack:");
     //s = print_stack(s);
     printf("\n");
     
     stack_elem *array = stack_to_array(s);
+    printf("\n array dump");
     array_dump(array, size+1);
     stack_destroy(s);
     return 0;

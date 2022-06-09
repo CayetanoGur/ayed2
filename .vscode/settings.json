@@ -16,6 +16,9 @@
         "memory": "c",
         "numeric": "c",
         "ostream": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "array": "c",
+        "initializer_list": "c",
+        "utility": "c"
     }
 }
