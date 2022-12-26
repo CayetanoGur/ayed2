@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+	<div class="row home-elem1">
+	    <div class="col col-left">
+	      	<h1 class="ityped">
+			
+		    </h1>
+		    <a href="#markets" class="btn btn-primary cta-1">Markets</a>
+	    </div>
+	    <div class="col">
+	      	<picture>
+	      		<img class="home_asset_1 rotate linear infinite" src="{% static 'assets/mainPage.png' %}" alt="Hexagram">
+	      	</picture>
+	    </div>
+	</div>
+	<div id="markets" class="row home-elem2">
+		<div class="heading mb-3">Trending Topics</div>
+		<div class="trending-topics">
+			{% for market in markets %}
+				<div class="card">
+				  	<div class="card-body">
+				    	<h5 class="card-title">{{market.name}}</h5>
+				    	<h6 class="card-subtitle mb-2 text-muted">{{market.event_date|date:"M"}}</h6>
+				    	<div class="card-nested-body">
+				    		{% for option in market.get_book_options %}
+					    		<div class="card-text">
+						    		<span>{{option.name}}</span>
+						    		{% if option.yes_bid_price %}
+						    			<span class="yes-item">Yes {{option.yes_bid_price}}¢</span>
+						    		{% endif %}
+						    		{% if option.no_bid_price %}
+						    			<span class="no-item">No {{option.no_bid_price}}¢</span>
+						    		{% endif %}
+						    	</div>
+					    	{% endfor %}
+					    	<div class="card-text">
+					    		<span><i class="fa-solid fa-chart-simple me-2"></i><span class="card-subtitle text-muted">{{market.number_of_bids}}</span></span>
+					    	</div>	
+				    	</div>
+				  	</div>
+				</div>	
+			{% endfor %}
+		</div>
+	</div>
+	<h2 id="about-us" class="text-center mb-4" style="font-weight: 600;">About Us</h2>
+	<div class="row about-us-container">
+		<div class="col-6 align-items-center p-3">
+			<div class="me-2">
+				<picture>
+					<img src="{% static 'assets/triangl.png' %}" alt="top-left-triangle-image">
+				</picture>	
+			</div>
+			<div>
+				<h5 class="title">Trading</h5>
+				<h6 class="text-muted">Trade future events like stocks</h6>
+			</div>
+		</div>
+		<div class="col-6 align-items-center about-us-right-items">
+			<div class="me-2">
+				<picture>
+					<img src="{% static 'assets/form.png' %}" alt="top-right-hedging-image">
+				</picture>
+			</div>
+			<div>
+				<h5 class="title">Hedging</h5>
+				<h6 class="text-muted">Manage your risks by trading future events</h6>
+			</div>
+		</div>
+		<div class="col-12 justify-content-center align-items-center">
+			<picture>
+				<img src="{% static 'assets/middleOne.png' %}" alt="middle-crystal-image">
+			</picture>
+		</div>
+		<div class="col-6 align-items-center p-3">
+			<div class="me-2">
+				<picture>
+					<img src="{% static 'assets/rombo.png' %}" alt="bottom-left-crystal-image">
+				</picture>	
+			</div>
+			<div>
+				<h5 class="title">Forecasting</h5>
+				<h6 class="text-muted">Use the insight of the market to understand the world</h6>
+			</div>
+		</div>
+		<div class="col-6 align-items-center about-us-right-items">
+			<div class="me-2">
+				<picture>
+					<img src="{% static 'assets/square.png' %}" alt="bottom-right-square-image">
+				</picture>
+			</div>
+			<div>
+				<h5 class="title">Investing</h5>
+				<h6 class="text-muted">Invest in your opinions</h6>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+{% block scripts %}
+	<script src="https://unpkg.com/ityped@0.0.10"></script>
+	<script>
+        window.ityped.init(document.querySelector('.ityped'),{
+            strings: ['Trade events like never before'],
+            typeSpeed: 100,
+	  		startDelay: 1000,
+	  		backSpeed: 60,
+	  		backDelay: 2000,
+	  		loop: false,
+        })
+	</script>
+{% endblock %}
